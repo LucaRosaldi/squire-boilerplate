@@ -2,4 +2,3 @@
 .DS_store
 *.map
 /node_modules
-/public/data/config.json

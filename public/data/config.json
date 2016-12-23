@@ -1,0 +1,28 @@
+{
+	"root": "",
+	"path": {
+		"view": "views",
+		"partial": "views/partials",
+		"component": "views/components"
+	},
+	"uri": {
+		"css": "assets/css",
+		"js": "assets/js",
+		"img": "assets/img",
+		"video": "assets/video",
+		"font": "assets/fonts"
+	},
+	"lang": [
+		{
+			"code": "it",
+			"locale": "it_IT",
+			"name": "Italian",
+			"translated_name": "Italiano",
+			"icon": "",
+			"iubenda_id": "",
+			"default": true
+		}
+	],
+	"secret": "",
+	"debug": true
+}
