@@ -1,0 +1,49 @@
+/*---------------------------------------------------------------------------*\
+    FORM FIELD
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Form Fields are blocks which contain a single input field,
+ *  or single/multiple checkboxes and radio buttons.
+ *
+ *  It can be tweaked for spacing purposes,
+ *  i.e adding margin and/or padding.
+ *
+ *  Example markup:
+ *
+
+<div class="o-formField">
+
+  <input
+    class="text-input"
+    id="field_1"
+    name="field_1"
+    type="text"
+    required />
+
+</div>
+
+ *
+ */
+
+.o-formField {
+  @include clearfix;
+  position: relative;
+}
+
+  /**
+   * The form field errors.
+   */
+  /*ul*/.o-formField_errors {
+    display: none;
+    margin: 0;
+    list-style: none;
+    &.filled { display: block; }
+
+    > li {
+      @extend .o-feedback;
+      margin-top: half( $ui-unit );
+      padding: half( $ui-unit ) $ui-unit;
+      font-size: 0.85em;
+    }
+  }

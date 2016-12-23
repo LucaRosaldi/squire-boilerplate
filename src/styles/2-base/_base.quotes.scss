@@ -1,0 +1,60 @@
+/*---------------------------------------------------------------------------*\
+   QUOTES
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Basic styles for quotes.
+ *
+ * Here is the correct markup for HTML quotes:
+ *
+
+<blockquote>
+  <p>Insanity: doing the same thing over and over again and expecting
+  different results.</p>
+  <b class="source">Albert Einstein - <cite>Theory of Relativity</cite></b>
+</blockquote>
+
+ *
+ */
+$quote-border-color: #ddd !default;
+
+blockquote {
+  padding-left: $ui-unit;
+  border-left: 4px solid $quote-border-color;
+  text-indent: -0.31em;
+
+  quotes:"\201C" "\201D";
+
+  p:before {
+    content: "\201C";
+    content: open-quote;
+  }
+  p:after {
+    content: "";
+    content: no-close-quote;
+  }
+  p:last-of-type:after {
+    content: "\201D";
+    content: close-quote;
+  }
+
+  q:before {
+    content: "\2018";
+    content: open-quote;
+  }
+  q:after {
+    content: "\2019";
+    content: close-quote;
+  }
+
+}
+
+.source {
+  display: block;
+  text-indent: 0;
+  margin-top: $ui-unit / 4;
+
+  &:before {
+    content: "\2014";
+  }
+}

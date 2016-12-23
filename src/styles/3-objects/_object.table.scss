@@ -1,0 +1,29 @@
+/*---------------------------------------------------------------------------*\
+   FAUX TABLE
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Extend table behaviour to use whatever element as a table.
+ *
+ */
+
+.o-table {
+  @extend table;
+  display: table;
+}
+  .o-thead {
+    @extend thead;
+    display: table-header-group;
+  }
+  .o-th {
+    @extend th;
+    display: table-cell;
+  }
+  .o-tbody {
+    @extend tbody;
+    display: table-row-group;
+  }
+  .o-td {
+    @extend td;
+    display: table-cell;
+  }

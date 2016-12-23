@@ -1,0 +1,117 @@
+/*---------------------------------------------------------------------------*\
+   COMPONENT: MODAL WINDOW
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * A modal window.
+ *
+ */
+$c-modal-overlay-color:                $black;
+$c-modal-overlay-opacity:              .85;
+$c-modal-overlay-transition-duration:  .15s;
+
+/**
+ * Visible state.
+ */
+.c-modal {
+  @extend .g-flex;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: layer( 'modal' );
+  will-change: opacity, transform;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 800ms linear;
+}
+
+/**
+ * Hidden state.
+ */
+.c-modal[aria-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 400ms linear,
+              transform 400ms ease,
+              visibility 0s linear 400ms;
+}
+
+  /**
+   * Modal overlay.
+   */
+  .c-modal_overlay {
+    @extend %coverer;
+    background-color: rgba( $c-modal-overlay-color, $c-modal-overlay-opacity );
+    z-index: -1;
+
+    opacity: 1;
+    visibility: visible;
+    transition: opacity $c-modal-overlay-transition-duration ease;
+  }
+  .c-modal[aria-hidden="true"] .c-modal_overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $c-modal-overlay-transition-duration ease,
+                visibility 0s linear $c-modal-overlay-transition-duration;
+  }
+
+
+  /**
+   * Container.
+   */
+  .c-modal_container {
+    @extend .g-wrap;
+    @extend .g-row;
+  }
+
+  /**
+   * Content.
+   */
+  .c-modal_content {
+    width: 100%;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: $white;
+  }
+
+  /**
+   * Close button.
+   */
+  .c-modal_close {
+    @extend .o-hamburger--close;
+    position: fixed;
+    top: 1rem; right: 1rem;
+  }
+
+
+/** --- VARIANTS --- */
+
+/**
+ * Video embeds.
+ */
+.c-modal--video .c-modal_content {
+  @extend .o-proportional;
+  @extend .o-proportional--16\:9;
+  padding: 0;
+  iframe { height: 100%; }
+}
+
+/**
+ * Width.
+ */
+.c-modal--auto .c-modal_container {
+  max-width: none;
+}
+.c-modal--s .c-modal_container {
+  @extend .g-wrap--s;
+}
+.c-modal--m .c-modal_container {
+  @extend .g-wrap--m;
+}
+
+/**
+ * Alignment.
+ */
+.c-modal--top .c-modal_container {
+  @extend .g-row--top;
+}

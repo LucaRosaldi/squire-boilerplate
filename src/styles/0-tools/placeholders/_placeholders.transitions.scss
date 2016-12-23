@@ -1,0 +1,33 @@
+/*---------------------------------------------------------------------------*\
+    TRANSITIONS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Default transition settings which are used throughout
+ *  the theme to provide a consistent interaction design.
+ *
+ */
+$transition-duration:   500ms;
+
+/**
+ * Generic transitions.
+ */
+%transition {
+  transition: all $transition-duration ease;
+}
+
+/**
+ * Transition for fade in effects.
+ */
+%transition-in {
+  transition: all $transition-duration linear,
+              transform $transition-duration ease-out;
+}
+
+/**
+ * Transition for fade out effects.
+ */
+%transition-out {
+  transition: all $transition-duration linear,
+              transform $transition-duration ease-in;
+}

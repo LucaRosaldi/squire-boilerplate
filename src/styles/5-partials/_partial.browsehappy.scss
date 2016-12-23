@@ -1,0 +1,37 @@
+/*---------------------------------------------------------------------------*\
+   BROWSEHAPPY
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * List of links which show the path from the home page.
+ *
+ */
+
+.p-browsehappy {
+  @extend %coverer;
+  position: fixed;
+  z-index: layer( 'loader' ) + 1;
+  background-color: $gray-dark;
+  color: $white;
+}
+  .p-browsehappy_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
+    margin-top: -100px;
+    text-align: center;
+  }
+    .p-browsehappy_title {
+      color: $white;
+    }
+    .p-browsehappy_message {
+      margin-top: em( 20px );
+      color: tint( $gray-dark, 50 );
+    }
+    .p-browsehappy_cta {
+      @extend .o-button;
+      margin-top: em( 20px );
+      font-size: em( 14px );
+    }

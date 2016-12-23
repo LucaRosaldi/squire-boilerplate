@@ -1,0 +1,124 @@
+/*---------------------------------------------------------------------------*\
+    CONTROL INPUTS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Styles for checkboxes and radio input types.
+ *
+ *  Inputs and control indicators are wrapped in a <label> tag,
+ *  for accessibility purposes.
+ *
+ *  Example markup:
+ *
+
+<label
+  for="field_1"
+  class="[ o-input-checkbox | o-input-radio ]" >
+  <input type="o-input-control_tag" id="field_1">
+  <span class="o-checkbox_indicator" aria-hidden="true"></span>
+  <span class="o-checkbox_text">Check this custom checkbox or radio</span>
+</label>
+
+ *
+ */
+
+.o-input-control {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+  /**
+   *  The actual checkbox / radio input, hidden by default.
+   *
+   *  1. Put the input behind the label so it doesn't overlay text
+   */
+  .o-input-control_tag {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;  /* 1 */
+  }
+
+  /**
+   *  The control indicator,
+   *  aka the fake checkbox / radio button.
+   */
+  .o-input-control_indicator {
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+    margin-right: 0.25em;
+
+    line-height: 1rem;
+    text-align: center;
+
+    background-color: $gray-10;
+    border: 1px solid rgba( $black, 0.15 );
+    color: inherit;
+
+    background-size: 50% 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    user-select: none;
+    transition: all 200ms ease;
+  }
+    // Hover state
+    .o-input-control:hover .o-input-control_indicator {
+      border-color: $ui-color-accent;
+      background-color: $white;
+    }
+    // Disabled state
+    .o-input-control_tag[disabled] ~ .o-input-control_indicator {
+      opacity: 0.65;
+      cursor: default;
+    }
+
+/**
+ * Checkbox
+ */
+.o-input-checkbox {
+  @extend .o-input-control;
+}
+
+  .o-input-checkbox_tag {
+    @extend .o-input-control_tag;
+  }
+
+  .o-input-checkbox_indicator {
+    @extend .o-input-control_indicator;
+    border-radius: 0;
+  }
+
+  // Checkmark
+  .o-input-checkbox_tag:checked ~ .o-input-checkbox_indicator {
+    background-color: $ui-color-accent;
+    border-color: $ui-color-accent;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);
+  }
+
+/**
+ * Radio
+ */
+.o-input-radio {
+  @extend .o-input-control;
+}
+
+  .o-input-radio_tag {
+    @extend .o-input-control_tag;
+  }
+
+  .o-input-radio_indicator {
+    @extend .o-input-control_indicator;
+    border-radius: 50%;
+  }
+
+  // Checkmark
+  .o-input-radio_tag:checked ~ .o-input-radio_indicator {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQsMUMyLjMsMSwxLDIuMywxLDRzMS4zLDMsMywzczMtMS4zLDMtM1M1LjcsMSw0LDF6Ii8+DQo8L3N2Zz4NCg==);
+  }

@@ -1,0 +1,184 @@
+/*---------------------------------------------------------------------------*\
+   SELECT
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Styles for the <select> tag.
+ *
+ * We wrap the tag in a div with the .o-input-select class.
+ * This allows us to display a custom arrow, and to
+ * hide the default one.
+ *
+
+<div class="o-input-select">
+  <select
+    class="o-input-select_tag"
+    name="field_1">
+    <option>- choose one</option>
+    <option>The first option</option>
+    <option>The second option</option>
+    <option>The third option</option>
+  </select>
+</div>
+
+ *
+ */
+$o-input-select-color:        $ui-color-text;
+$o-input-select-background:   $gray-5;
+$o-input-select-border:       1px solid rgba( $black, 0.15 );
+
+/**
+ * Select wrapper.
+ */
+.o-input-select {
+  position: relative;
+}
+
+  /**
+   * Caret.
+   */
+  .o-input-select::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.5em;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-top: -0.2em;
+    border: 1px solid transparent;
+    border-top: $o-input-select-border;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /**
+   * Select element.
+   *
+   * 1. Remove inner focus ring in Firefox.
+   * 2. Hide arrow in IE10 and up.
+   */
+  .o-input-select,
+  .o-input-select_tag {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    color: $ui-color-text;
+  }
+  .o-input-select_tag {
+    padding: 1em;
+    padding-right: 3em;
+
+    font-size: 1rem;
+
+    border: 1px solid rgba( $black, 0.15 );
+    background-color: $o-input-select-background;
+    border-radius: 4px;
+
+    appearance: none;
+    cursor: pointer;
+    outline: 0;
+
+    /* 1 */
+    &:focus:-moz-focusring {
+      color: transparent !important;
+      text-shadow: 0 0 0 #000 !important;
+    }
+
+    /* 2 */
+    &::-ms-expand {
+      display: none !important;
+    }
+
+  }
+  .o-input-select_tag:hover {
+    // hover state
+  }
+  .o-input-select_tag:focus {
+    // focus state
+  }
+
+/**
+ * Multiple select
+ */
+.o-input-select--multiple {
+  @extend .o-input-select;
+
+  // Reset box model
+  .o-input-select_tag {
+    height: auto;
+    padding: 0;
+  }
+
+  // Restore hover and active states
+  .no-touch & .o-input-select_tag:hover,
+  .no-touch & .o-input-select_tag:active {
+    background-color: $o-input-select-background;
+    color: $o-input-select-color;
+  }
+
+  // Style options
+  .o-input-select_tag > option {
+    margin-top: 0;
+    padding: 1em;
+    border-top: $o-input-select-border;
+    &:first-child { border-top: 0; }
+  }
+
+  // Hide the caret
+  &::after {
+    display: none;
+  }
+
+}
+
+/**
+ * Firefox specific media query.
+ */
+@-moz-document url-prefix() {
+
+  // Firefox hack to hide the arrow
+  .o-input-select_tag {
+    text-indent: 0.01px !important;
+    text-overflow: '' !important;
+    padding-right: 1rem !important;
+  }
+
+  // <option> elements inherit styles from <select>, so reset them.
+  .o-input-select_tag > option {
+    background-color: white !important;
+  }
+
+}
+
+/**
+ * IE9 hack to hide the arrow
+ */
+@media screen and (min-width:0\0) {
+
+  .o-input-select_tag {
+    z-index: 1;
+    padding: .5rem 1.5rem .5rem 1rem !important;
+  }
+  .o-input-select::after {
+    z-index: 5;
+  }
+  .o-input-select::before {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    bottom: 0;
+    z-index: 2;
+    content: "";
+    display: block;
+    width: 1.5rem;
+    background-color: #eee;
+  }
+  .o-input-select_tag:hover,
+  .o-input-select_tag:focus,
+  .o-input-select_tag:active {
+    background-color: $o-input-select-background;
+    color: $o-input-select-color;
+  }
+
+}

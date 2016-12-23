@@ -1,0 +1,99 @@
+/*---------------------------------------------------------------------------*\
+    COMPONENT: PARALLAX
+\*---------------------------------------------------------------------------*/
+/**
+ *  @element      Parallax
+ *  @section      Components
+ *  @description  Section on which a parallax effect is applied.
+ *
+ *  @markup
+ *    <div class="c-parallax">
+ *      <ul class="c-parallax_stage">
+ *        <li class="c-parallax_stage_item">
+ *          <img src="...">
+ *        </li>
+ *        <li class="c-parallax_stage_item">
+ *          <img src="...">
+ *        </li>
+ *        ...
+ *      </ul>
+ *    </div>
+ */
+
+/**
+ * Component container.
+ *
+ * 1. helpers for resizing elements
+ * 2. helpers for blurring elements
+ */
+.c-parallax {
+  position: relative;
+
+  /* [1] */
+  [data-distance="2"] img { transform: scale( 0.85 ); }
+  [data-distance="3"] img { transform: scale( 0.70 ); }
+  [data-distance="4"] img { transform: scale( 0.65 ); }
+  [data-distance="5"] img { transform: scale( 0.50 ); }
+
+  /* [2] */
+  [data-blur="1"] { filter: blur( 0.5px ); }
+  [data-blur="2"] { filter: blur( 1.0px ); }
+  [data-blur="3"] { filter: blur( 1.5px ); }
+  [data-blur="4"] { filter: blur( 2.0px ); }
+}
+  .c-parallax_stage,
+  .c-parallax_stage_item,
+  .c-parallax_stage_item img {
+    @extend %coverer;
+    display: block;
+    height: auto;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  /**
+   * The parallax stage.
+   *
+   * The stage is proportional, and everything it inside has absolute
+   * positioning. By default, the container is square, and should be adjusted
+   * by changing the top padding of the pseudo-element.
+   *
+   * 1. make the container square
+   * 2. helpers for resizing elements
+   * 3. helpers for blurring elements
+   */
+  .c-parallax_stage {
+    list-style: none;
+    margin: 0;
+
+    /* [1] */
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    > * {
+      position: absolute;
+    }
+  }
+
+  /**
+   * Rectangular stage, 3:2 aspect ratio.
+   */
+  .c-parallax_stage--rect {
+    &::before { padding-top: 66.6666%; }
+  }
+
+  /**
+   * Stage where elements are positioned from the bottom
+   * instead that from the top.
+   */
+  .c-parallax_stage--bottom {
+    &,
+    .c-parallax_stage_item,
+    .c-parallax_stage_item img {
+      top: auto; bottom: 0;
+    }
+  }

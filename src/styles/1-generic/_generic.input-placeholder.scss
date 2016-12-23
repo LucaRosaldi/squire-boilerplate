@@ -1,0 +1,14 @@
+/*---------------------------------------------------------------------------*\
+    GENERIC: INPUT PLACEHOLDER
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Placeholder text.
+ *
+ */
+$placeholder-color: rgba( $black, 0.4 );
+
+::-webkit-input-placeholder { color: $placeholder-color; }
+:-moz-placeholder           { color: $placeholder-color; }
+::-moz-placeholder          { color: $placeholder-color; }
+:-ms-input-placeholder      { color: $placeholder-color; }

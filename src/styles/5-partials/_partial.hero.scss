@@ -1,0 +1,30 @@
+/*---------------------------------------------------------------------------*\
+   HERO
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Main website banner.
+ *
+ */
+
+/**
+ * Container.
+ */
+.p-hero {
+  @extend .g-row;
+  @extend .g-row--center;
+  @extend .g-row--start\@w;
+  @extend .g-row--bottom;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  @include bp-wide { height: 750px; }
+}
+
+  /**
+   * Text content.
+   */
+  .p-hero_content {
+    @extend .g-row;
+    @extend .g-row--start;
+  }

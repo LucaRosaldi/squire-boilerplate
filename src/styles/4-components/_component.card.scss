@@ -1,0 +1,78 @@
+/*---------------------------------------------------------------------------*\
+    CARD
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  A boxed container which normally displays an image ( header ), some text
+ *  ( content ) and actions ( footer ). Uses flexbox display, so we can make
+ *  all the boxes of equal height, if necessary.
+ *
+ */
+$c-card-border-radius:  4px;
+$c-card-box-shadow:     0 0 0 $black;
+
+.c-card {
+  @extend %material-shadow-z1 !optional;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $white;
+
+  border-radius: $c-card-border-radius;
+  box-shadow: $c-card-box-shadow;
+
+  > * {
+    position: relative;
+    width: 100%;
+  }
+}
+
+  /**
+   * Designate which part of the card should be flexible,
+   * in case of equal-height columns.
+   */
+  .c-card_flex {
+    flex: 1 0 auto;
+  }
+
+  /**
+   *  Card header.
+   *
+   *  1. prevent image from overflowing the rounded corners.
+   */
+  .c-card_header {
+    overflow: hidden;
+    border-radius: $c-card-border-radius $c-card-border-radius 0 0;
+    -webkit-mask-image: -webkit-radial-gradient( circle, white, black );  /* 1 */
+  }
+
+    /**
+     * Card image.
+     * Also works with a background-image applied inline.
+     */
+    .c-card_image {
+      display: block;
+      background-position: center center;
+      background-size: cover;
+    }
+
+  /**
+   *  Card content.
+   */
+  .c-card_content {
+    background-color: $white;
+    text-align: center;
+  }
+
+    /**
+     *  Card title.
+     */
+    .c-card_title {
+    }
+
+  /**
+   *  Card footer.
+   */
+  .c-card_footer {
+    border-radius: 0 0 $c-card-border-radius $c-card-border-radius;
+  }

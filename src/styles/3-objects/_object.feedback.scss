@@ -1,0 +1,149 @@
+/*---------------------------------------------------------------------------*\
+   FEEDBACK
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Feedbacks are alerts which are displayed to the user when an important
+ * message must be communicated, or when a specific action has been performed.
+ *
+ * Feedbacks need the following markup:
+ *
+
+<li class="feedback [ feedback--success | feedback--info | feedback--warning | feedback--error ] [feedback--removable]">
+  <h4 class="feedback_title">This is the feedback title</h4>
+  <p class="feedback_message">This is the content of this feedback. It can be used to provide more info about what happened.</p>
+  <span class="feedback_close" aria-hidden="true"></span>
+</li>
+
+ *
+ */
+$feedback-padding-sides:              1em;
+$feedback-padding-edges:              1em;
+$feedback-border-width:               1px;
+$feedback-border-radius:              0;
+
+$feedback-info-color:                 shade( $ui-color-info, 30 );
+$feedback-info-background-color:      tint(  $ui-color-info, 80 );
+$feedback-info-border-color:          tint(  $ui-color-info, 35 );
+
+$feedback-warning-color:              shade( $ui-color-warning, 30 );
+$feedback-warning-background-color:   tint(  $ui-color-warning, 80 );
+$feedback-warning-border-color:       tint(  $ui-color-warning, 35 );
+
+$feedback-success-color:              shade( $ui-color-success, 30 );
+$feedback-success-background-color:   tint(  $ui-color-success, 80 );
+$feedback-success-border-color:       tint(  $ui-color-success, 35 );
+
+$feedback-error-color:                shade( $ui-color-error, 30 );
+$feedback-error-background-color:     tint(  $ui-color-error, 80 );
+$feedback-error-border-color:         tint(  $ui-color-error, 35 );
+
+
+/**
+ * Standard feedback.
+ *
+ * 1. set a more condensed line height, for better reading
+ * 2. make space for the remove button
+ */
+.o-feedback {
+  display: block;
+  position: relative;
+  z-index: layer( 'alert' );
+  padding: $feedback-padding-edges $feedback-padding-sides;
+  line-height: $ui-line-height - 0.15;
+  border: $feedback-border-width solid $feedback-error-border-color;
+  background: $feedback-error-background-color;
+  color: $feedback-error-color;
+  border-radius: $feedback-border-radius;
+}
+
+/**
+ * Removable feedback.
+ *
+ * 1. make space for the close button
+ */
+.o-feedback--removable {
+  padding-right: ( $feedback-padding-sides * 1.5 );                  /* 1 */
+}
+
+/**
+ * Hide feedback when it’s removed.
+ */
+.o-feedback--removed {
+  display: none;
+}
+
+  .o-feedback_message {
+  }
+
+    /**
+     * Alert title.
+     *
+     * 1. The feedback title is the same color of the feedback text.
+     */
+    .o-feedback_title {
+      font-size: 1.125em;
+      line-height: inherit;
+      color: inherit;   /* 1 */
+    }
+
+    /**
+     * Close button for removable feedbacks.
+     */
+    .o-feedback_close {
+      display: inline-block;
+      position: absolute;
+      z-index: z('above');
+      top: 0; right: 0;
+      margin: 0.5rem;
+      font-size: 2em;
+      line-height: 1;
+      text-align: center;
+      cursor: pointer;
+
+      // Multiplication sign ( &times; )
+      &:before { content: '\00D7'; }
+
+      // Hover effect
+      opacity: 0.5;
+      &:hover { opacity: 1; }
+    }
+
+
+/**
+ * Color variants.
+ */
+.o-feedback--success {
+  border: $feedback-border-width solid $feedback-success-border-color;
+  background: $feedback-success-background-color;
+  color: $feedback-success-color;
+}
+.o-feedback--info {
+  border: $feedback-border-width solid $feedback-info-border-color;
+  background: $feedback-info-background-color;
+  color: $feedback-info-color;
+}
+.o-feedback--warning {
+  border: $feedback-border-width solid $feedback-warning-border-color;
+  background: $feedback-warning-background-color;
+  color: $feedback-warning-color;
+}
+.o-feedback--error {
+  border: $feedback-border-width solid $feedback-error-border-color;
+  background: $feedback-error-background-color;
+  color: $feedback-error-color;
+}
+
+/**
+ * A growl-style notification which appears in the bottom right
+ * corner of the page.
+ */
+.o-feedback--notification {
+  position: fixed;
+  right: $ui-unit;
+  bottom: $ui-unit;
+  z-index: layer( 'overlay' );
+  width: calc( 100vw - #{ double( $ui-unit ) } );
+  max-width: 360px;
+  padding: double( $ui-unit );
+}

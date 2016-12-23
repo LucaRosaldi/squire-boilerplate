@@ -1,0 +1,78 @@
+/*---------------------------------------------------------------------------*\
+   TYPOGRAPHY
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Basic styling for typography.
+ *
+ * Uses fluid line height and responsive typography by Mike Riethmuller.
+ * http://codepen.io/MadeByMike/pen/YPJJYv
+ *
+ */
+
+// Font size (in pixels)
+$min_font_size: 14;
+$max_font_size: 18;
+
+// Line height
+$min_line_height: 1.25;
+$max_line_height: 1.65;
+$line_height_scaling: 0.75vw;
+$heading-line-height:  0.9;
+
+// Min and max viewport sizes (in pixels) for scaling
+$min_width: 400;
+$max_width: 1024;
+
+:root {
+  font-family: $ff-sans;
+  font-size: #{$min_font_size}px;
+  line-height: calc( #{$min_line_height}em + #{$line_height_scaling} );
+  color: $ui-color-text;
+  @media ( min-width: #{$min_width}px ) and ( max-width: #{$max_width}px ){
+    font-size: calc( #{$min_font_size}px + (#{$max_font_size} - #{$min_font_size}) * ( (100vw - #{$min_width}px) / ( #{$max_width} - #{$min_width}) ));
+  }
+  @media (min-width: #{$max_width}px){
+    font-size: #{$max_font_size}px;
+    line-height: #{$max_line_height}em;
+  }
+}
+
+/**
+ * Paragraphs.
+ */
+p {
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures contextual;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+/**
+ * Headings.
+ */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  line-height: $heading-line-height;
+  color: $ui-color-headings;
+}
+
+h1, .h1                   { font-size: 2.5em; }
+h2, .h2                   { font-size: 2em; }
+h3, .h3                   { font-size: 1.324em; }
+h4, .h4, h5, .h5, h6, .h6 { font-size: 1em; }
+
+@include bp-medium {
+  h1, .h1                 { font-size: 3em; }
+  h2, .h2                 { font-size: 2.25em; }
+}
+@include bp-large {
+  h1, .h1                 { font-size: 3.5em; }
+  h2, .h2                 { font-size: 2.75em; }
+}
+@include bp-wide {
+  h1, .h1                 { font-size: 4em; }
+}

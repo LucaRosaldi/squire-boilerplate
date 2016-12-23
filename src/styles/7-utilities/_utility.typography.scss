@@ -1,0 +1,68 @@
+/*---------------------------------------------------------------------------*\
+   UTILITY: TYPOGRAPHY
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Utility classes for styling text.
+ *
+ */
+
+/**
+ * Font family.
+ */
+.u-ff-serif   { font-family: $ff-serif !important; }
+.u-ff-sans    { font-family: $ff-sans !important; }
+.u-ff-mono    { font-family: $ff-mono !important; }
+.u-ff-display { font-family: $ff-display !important; }
+
+/**
+ * Font size.
+ */
+.u-fz-default { font-size: 1rem; }
+.u-fz-xs      { font-size: em( 12px ) !important; }
+.u-fz-s       { font-size: em( 14px ) !important; }
+.u-fz-m       { font-size: em( 16px ) !important; }
+.u-fz-l       { font-size: em( 18px ) !important; }
+.u-fz-xl      { font-size: em( 20px ) !important; }
+.u-fz-xxl     { font-size: em( 26px ) !important; }
+.u-fz-x2      { font-size: em( 32px ) !important; }
+.u-fz-h1      { @extend .h1; }
+.u-fz-h2      { @extend .h2; }
+.u-fz-h3      { @extend .h3; }
+.u-fz-h4      { @extend .h4; }
+
+/**
+ * Font weight.
+ */
+.u-fw-400     { font-weight: 400 !important; }
+.u-fw-700     { font-weight: 700 !important; }
+.u-fw-300     { font-weight: 300 !important; }
+
+/**
+ * Font style.
+ */
+.u-fs-n       { font-style: normal !important; }
+.u-fs-o       { font-style: oblique !important; }
+
+/**
+ * Text align.
+ */
+.u-ta-l       { text-align: left !important; }
+.u-ta-c       { text-align: center !important; }
+.u-ta-r       { text-align: right !important; }
+
+@include bp-medium {
+.u-ta-l\@m    { text-align: left !important; }
+.u-ta-c\@m    { text-align: center !important; }
+.u-ta-r\@m    { text-align: right !important; }
+}
+@include bp-large {
+.u-ta-l\@l    { text-align: left !important; }
+.u-ta-c\@l    { text-align: center !important; }
+.u-ta-r\@l    { text-align: right !important; }
+}
+@include bp-wide {
+.u-ta-l\@w    { text-align: left !important; }
+.u-ta-c\@w    { text-align: center !important; }
+.u-ta-r\@w    { text-align: right !important; }
+}

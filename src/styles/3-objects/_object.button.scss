@@ -1,0 +1,139 @@
+/*---------------------------------------------------------------------------*\
+    BUTTON
+\*---------------------------------------------------------------------------*/
+/**
+ *  @block        Button
+ *  @section      Objects
+ *  @description  Buttons. Just buttons.
+ *
+ *  @markup
+ *    <a class="o-button [o-button--modifier]">
+ *      My awesome button.
+ *    </a>
+ */
+
+/**
+ *  @element      Button
+ *  @description  Basic button.
+ */
+.o-button {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+
+  // Box model
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: em( 12px ) em( 18px );
+
+  // Typography
+  @extend %ff-sans;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+
+  // Effects
+  text-shadow: none;
+  border-radius: 100px;
+  transition: all 200ms linear;
+
+  // default colors
+  border: 2px solid transparent;
+
+}
+
+/**
+ *  @modifier     Full
+ *  @description  Buttons which fills the whole parent width.
+ */
+.o-button--full {
+  width: 100%;
+  text-align: center;
+}
+
+/**
+ * Button style modifiers.
+ */
+/**
+ *  @modifier     Pill
+ *  @description  Fully rounded button.
+ */
+.o-button--pill {
+  border-radius: 1000px;
+}
+
+/**
+ *  @modifier     Pill
+ *  @description  Button with no border-radius.
+ */
+.o-button--hard {
+  border-radius: 0;
+}
+
+/**
+ *  @modifier     Short
+ *  @description  Shorter button.
+ */
+.o-button--short {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+}
+
+/**
+ *  @modifier     Tall
+ *  @description  Taller button.
+ */
+.o-button--tall {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+/**
+ *  @modifier     Disabled
+ *  @description  Inactive buttons.
+ */
+.o-button:disabled,
+.o-button[disabled],
+.o-button[disabled]:hover,
+.o-button[disabled]:active,
+.o-button[disabled]:focus,
+.o-button--disabled,
+.o-button--disabled:hover,
+.o-button--disabled:active,
+.o-button--disabled:focus {
+  z-index: -1;
+  opacity: .75;
+  cursor: default;
+  pointer-events: none;
+}
+
+/**
+ *  @modifier     Natural
+ *  @description  Make the button inherit sizing from its parent.
+ */
+.o-button--natural {
+  vertical-align: baseline;
+  line-height: inherit;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+/**
+ *  @modifier     Blue
+ *  @description  Blue button.
+ */
+.o-button {
+  border-color: rgba( $ui-color-accent, 0.25 );
+  color: $ui-color-accent;
+  &:hover,
+  &:focus {
+    background-color: $ui-color-accent;
+    color: $white;
+  }
+  &:active {
+    background-color: darken( $ui-color-accent, 10 );
+    color: $white;
+  }
+}

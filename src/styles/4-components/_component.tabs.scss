@@ -1,0 +1,168 @@
+/*---------------------------------------------------------------------------*\
+   TABS
+\*---------------------------------------------------------------------------*/
+/*
+ *
+ * Tabs are used to display alternate but equally-important
+ * content, saving a lot of real estate on the screen,
+ * especially on small screen devices.
+ *
+ * Example markup:
+ *
+
+  <div class="c-tabs js-tabs">
+    <ul class="c-tabs_nav">
+      <li data-toggle-active="tab-section-1" class="c-tabs_nav_item is-active">Lorem</li>
+      <li data-toggle-active="tab-section-2" class="c-tabs_nav_item">Ipsum</li>
+      <li data-toggle-active="tab-section-3" class="c-tabs_nav_item">Dolor</li>
+    </ul>
+    <div class="c-tabs_content">
+      <section id="tab-section-1" class="c-tabs_content_item is-active">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem fuga, consectetur nesciunt voluptates aperiam possimus officia molestiae excepturi numquam iusto. Voluptatum libero ipsa, officiis commodi consequatur modi amet similique nulla?</p>
+      </section>
+      <section id="tab-section-2" class="c-tabs_content_item">
+        <p>Ipsum ipsam eum adipisci similique minus accusantium repellat, temporibus, magni porro aliquam dolorem aperiam, quis minima. Neque ea accusamus fuga culpa nihil numquam.</p>
+      </section>
+      <section id="tab-section-3" class="c-tabs_content_item">
+        <p>Dolor eligendi porro aspernatur consequuntur! Incidunt debitis perferendis suscipit laudantium minima repudiandae provident veritatis possimus ea, aut, porro ullam obcaecati consectetur animi?</p>
+      </section>
+    </div>
+  </div>
+
+ *
+ */
+$c-tabs-border-width:                 1px;
+$c-tabs-border-style:                 solid;
+$c-tabs-border-color:                 $ui-color-border;
+
+$c-tabs-nav-item-padding:             1.5em;
+$c-tabs-nav-item-background:          $gray-mask;
+$c-tabs-nav-item-color:               $gray;
+$c-tabs-nav-item-active-background:   #fff;
+$c-tabs-nav-item-active-color:        $gray;
+
+$c-tabs-content-item-padding:         1.5em;
+$c-tabs-content-item-background:      #fff;
+$c-tabs-content-item-color:           $gray;
+
+/**
+ * Standard tabs.
+ */
+.c-tabs {
+  @include clearfix;
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+
+  // Tabs navigation.
+  /*ul*/.c-tabs_nav {
+    display: block;
+    overflow: hidden;
+    margin:  0;
+    margin-bottom: -($c-tabs-border-width);
+    padding: 0;
+    list-style: none;
+  }
+    /*li*/.c-tabs_nav_item {
+      display: block;
+      position: relative;
+      float: left;
+      margin-top: 0;
+      white-space: nowrap;
+      cursor: pointer;
+      &.is-active {
+        z-index: 2;
+      }
+    }
+
+  // Expand the tabs navigation to full width
+  /*ul*/.c-tabs_nav--full {
+    @extend .c-tabs_nav;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+    /*ul*/.c-tabs_nav--full /*li*/.c-tabs_nav_item {
+      @extend .c-tabs_nav_item;
+      display: table-cell;
+      float: none;
+    }
+
+  // Tabs content.
+  .c-tabs_content {
+    margin-top: 0;
+    padding: 0;
+  }
+    .c-tabs_content_item {
+      position: relative;
+      display: none;
+      margin-top: 0;
+      padding: 15px;
+
+      &.is-active {
+        display: block;
+      }
+    }
+
+
+/**
+ * Vertical tabs
+ */
+.c-tabs--vertical {
+  @extend .c-tabs;
+
+  // Tabs navigation.
+  /*ul*/.c-tabs_nav,
+  /*ul*/.c-tabs_nav--full {
+    float: left;
+    width: 20%;
+    margin-bottom: 0;
+  }
+    .c-tabs_nav_item,
+    .c-tabs_nav--full .c-tabs_nav_item {
+      float: none;
+    }
+
+  // Tabs content.
+  .c-tabs_content {
+    float: right;
+    width: 80%;
+    margin-left: -($c-tabs-border-width);
+  }
+    .c-tabs_content_item {
+      margin-left: -($c-tabs-border-width);
+    }
+}
+
+/**
+ * Presentational CSS.
+ */
+
+.c-tabs_nav_item {
+  padding: $c-tabs-nav-item-padding;
+  background: $c-tabs-nav-item-background;
+  color: $c-tabs-nav-item-color;
+}
+
+.c-tabs_content_item {
+  padding: $c-tabs-content-item-padding;
+  background: $c-tabs-content-item-background;
+  color: $c-tabs-content-item-color;
+}
+
+.c-tabs_nav_item.is-active {
+  border: $c-tabs-border-width $c-tabs-border-style $c-tabs-border-color;
+  border-bottom-style: none;
+  background: $c-tabs-nav-item-active-background;
+  color: $c-tabs-nav-item-active-color;
+}
+
+.c-tabs--vertical .c-tabs_nav_item.is-active {
+  border-bottom-style: $c-tabs-border-style;
+  border-right-style: none;
+}
+
+.c-tabs_content_item {
+  border: $c-tabs-border-width $c-tabs-border-style $c-tabs-border-color;
+}

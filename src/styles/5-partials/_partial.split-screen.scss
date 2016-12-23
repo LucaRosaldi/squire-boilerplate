@@ -1,0 +1,71 @@
+/*---------------------------------------------------------------------------*\
+   SPLIT SCREEN LAYOUT
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * A flexbox-based split screen layout,
+ * with graceful degradation on older browsers.
+ *
+ * Demo: http://codepen.io/LucaRosaldi/full/yyppVp
+ *
+ */
+
+$split-screen-min-height: 100vh;     // Set this to 0 for auto height.
+
+
+.split-screen {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  min-height: $split-screen-min-height;
+
+  @media screen and (min-width: 42em) {
+    flex-flow: row wrap;
+  }
+
+}
+
+  .split-screen > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 0;
+    padding: 2em 0;
+
+    @media screen and (min-width: 42em) {
+      width: 50%;
+    }
+
+  }
+  .split-screen_left {
+    background-color: #fff;
+  }
+  .split-screen_right {
+    background-color: #eee;
+  }
+
+    .split-screen_content {
+      max-width: 30em;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 2em;
+      text-align: center;
+    }
+
+
+/**
+ * Fallback for older browsers.
+ */
+@media screen and (min-width: 42em) {
+  .no-flexbox .split-screen > * {
+    position: absolute;
+    float: left;
+    top: 0;
+    bottom: 0;
+  }
+  .no-flexbox .split-screen_left  { left: 0; }
+  .no-flexbox .split-screen_right { right: 0; }
+}

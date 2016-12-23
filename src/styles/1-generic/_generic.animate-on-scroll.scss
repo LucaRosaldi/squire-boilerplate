@@ -1,0 +1,80 @@
+/*---------------------------------------------------------------------------*\
+   GENERIC: ANIMATE ON SCROLL
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Animations which happen on page scroll. Requires the AOS Javascript library.
+ *
+ */
+
+/**
+ * Hidden state.
+ */
+[data-aos-effect] {
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  animation-play-state: paused;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  .no-js & { animation: none !important; }
+}
+
+/**
+ * Visible state.
+ */
+.aos-animate [data-aos-effect],
+[data-aos-effect].aos-animate {
+  animation-play-state: running;
+}
+
+/**
+ * Durations.
+ */
+@for $i from 1 through 10 {
+  [data-aos-speed="#{$i}"] { animation-duration: $i * 150ms; }
+}
+
+/**
+ * Delays.
+ */
+@for $i from 1 through 10 {
+  [data-aos-stagger="#{$i}"] { animation-delay: $i * 200ms; }
+}
+
+/**
+ * Animations.
+ */
+
+[data-aos-effect] {
+  animation-name: fadeIn;
+  animation-timing-function: linear;
+}
+[data-aos-effect='fade-up'] {
+  animation-name: fadeUp;
+}
+[data-aos-effect='fade-down'] {
+  animation-name: fadeDown;
+}
+[data-aos-effect='fade-right'] {
+  animation-name: fadeRight;
+}
+[data-aos-effect='fade-left'] {
+  animation-name: fadeLeft;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY( 3rem ) }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY( -3rem ) }
+}
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX( -3rem ) }
+}
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX( -3rem ) }
+}

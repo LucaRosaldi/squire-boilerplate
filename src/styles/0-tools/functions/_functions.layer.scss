@@ -1,0 +1,32 @@
+/*---------------------------------------------------------------------------*\
+   LAYERS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Variables and function for easier context stacking.
+ *
+ * Resources:
+ * http://www.sitepoint.com/better-solution-managing-z-index-sass/
+ * http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-layouts/
+ * http://css-tricks.com/handling-z-index/
+ *
+ */
+$ui-layers: (
+  'loader':    9000,
+  'modal':     8000,
+  'offcanvas': 7000,
+  'overlay':   6000,
+  'topbar':    5000,
+  'tooltip':   4000,
+  'dropdown':  3000,
+  'alert':     2000,
+  'above':     10,
+  'beneath':   -1
+) !default;
+
+@function layer( $name ) {
+  @if not map-has-key( $ui-layers, $name ) {
+    @warn "No layer found for `#{$name}` in $ui-layers map. Property omitted.";
+  }
+  @return map-get( $ui-layers, $name );
+}

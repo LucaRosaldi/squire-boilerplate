@@ -1,0 +1,22 @@
+/*---------------------------------------------------------------------------*\
+    BOX SHADOW
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Include a box shadow.
+ *
+ */
+$shadow-spread:  0 0 40px $black;
+$shadow-opacity: 0.1;
+
+.o-shadow {
+  position: relative;
+  &:before {
+    @extend %coverer;
+    @extend %transition;
+    content: "";
+    z-index: layer( 'beneath' );
+    box-shadow: $shadow-spread;
+    opacity: $shadow-opacity;
+  }
+}

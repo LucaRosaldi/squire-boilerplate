@@ -1,0 +1,21 @@
+/*---------------------------------------------------------------------------*\
+   BODY
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Basic styling for the body element.
+ *
+ */
+
+/**
+ * <body> element.
+ *
+ * 1. disable scrolling
+ */
+body {
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.no-scroll { overflow: hidden; }  /* [1] */
+}

@@ -1,0 +1,15 @@
+/*---------------------------------------------------------------------------*\
+   OBJECT: UPPERSPACED TEXT
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  An uppercased and letterspaced text style, used for buttons and chapters.
+ *
+ */
+
+.o-text-upperspaced {
+  @extend %ff-sans;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}

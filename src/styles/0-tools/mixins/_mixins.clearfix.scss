@@ -1,0 +1,21 @@
+/*---------------------------------------------------------------------------*\
+   CLEARFIX
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * The original micro clearfix by Nicholas Gallagher.
+ *
+ */
+@mixin clearfix {
+  &:before,
+  &:after {
+      content: "";
+      display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+  %clearfix, %cf {
+    @include clearfix;
+  }

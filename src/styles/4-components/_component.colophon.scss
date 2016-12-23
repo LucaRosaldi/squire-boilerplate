@@ -1,0 +1,14 @@
+/*---------------------------------------------------------------------------*\
+    COMPONENT: COLOPHON
+\*---------------------------------------------------------------------------*/
+/**
+ *  @block        Colophon
+ *  @section      Components
+ *  @description  Colophon for the website.
+ */
+
+.c-colophon {
+  margin: multiply( $ui-unit, 3 ) auto;
+  font-size: em( 12px );
+  text-align: center;
+}

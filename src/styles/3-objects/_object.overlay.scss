@@ -1,0 +1,40 @@
+/*---------------------------------------------------------------------------*\
+   BODY OVERLAY
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Black semi-transparent overlay for obscuring the content, normally applied
+ * to the site wrapper element when a modal window is opened.
+ *
+ * Example markup:
+ *
+
+  <body>
+    <div class="c-site o-overlay js-overlay">
+      [...]
+    </div>
+  </body>
+
+ *
+ */
+$o-overlay-color:                $black;
+$o-overlay-opacity:              .85;
+$o-overlay-transition-duration:  .15s;
+
+.o-overlay::after {
+  @extend %coverer;
+  content: '';
+  position: fixed;
+  z-index: z( 'overlay' );
+  background-color: rgba( $o-overlay-color, $o-overlay-opacity );
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $o-overlay-transition-duration ease,
+              visibility 0s linear $o-overlay-transition-duration;
+}
+.o-overlay.is-visible::after {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity $o-overlay-transition-duration ease;
+}

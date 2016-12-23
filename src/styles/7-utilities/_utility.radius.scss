@@ -1,0 +1,17 @@
+/*---------------------------------------------------------------------------*\
+    UTILITY: RADIUS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  @element  Radius
+ *  @section  Utilities
+ *  @description  Utility classes for border-radius property.
+ *
+ */
+
+.u-bdrs-xs      { border-radius: 2px !important; }
+.u-bdrs-s       { border-radius: 4px !important; }
+.u-bdrs         { border-radius: 6px !important; }
+.u-bdrs-l       { border-radius: 10px !important; }
+.u-bdrs-xl      { border-radius: 20px !important; }
+.u-bdrs-circle  { border-radius: 50% !important; }

@@ -1,0 +1,19 @@
+/*---------------------------------------------------------------------------*\
+    BUTTON ELEMENT
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  The <button> tag element.
+ *
+ */
+
+/**
+ * Reset <button> tag appearance.
+ */
+button {
+  color: inherit;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  &, &:active, &:focus { outline: none; }
+}

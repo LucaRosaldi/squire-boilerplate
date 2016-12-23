@@ -1,0 +1,41 @@
+/*---------------------------------------------------------------------------*\
+   AVATAR
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  A container for profile images.
+ *
+ *  Example markup:
+ *
+
+<div class="o-avatar">
+  <div class="o-avatar_picture">
+    <img class="o-avatar_image" />
+  </div>
+  <span class="o-avatar_text">
+    John Doe
+  </span>
+</div>
+
+ *
+ */
+$avatar-rounded: true;
+
+.o-avatar,
+.o-avatar_text,
+.o-avatar_picture {
+  display: inline-block;
+  margin: 0;
+}
+
+  .o-avatar_text {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .o-avatar_picture {
+  }
+
+  .o-avatar_image {
+    @if ( $avatar-rounded == true ) { border-radius: 100%; }
+  }

@@ -1,0 +1,8 @@
+{
+	"routes": {
+		"_dev": "_dev"
+	},
+	"external": {
+		"facebook": "https://www.facebook.com"
+	}
+}

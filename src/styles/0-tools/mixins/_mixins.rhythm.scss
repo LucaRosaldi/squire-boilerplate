@@ -1,0 +1,12 @@
+/*---------------------------------------------------------------------------*\
+   MIXIN: RHYTHM
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Define vertical rhythm for stacked elements.
+ *
+ */
+
+@mixin rhythm( $spacing, $scaling ) {
+  > * + * { margin-top: calc( #{$spacing} + #{$scaling} ); }
+}

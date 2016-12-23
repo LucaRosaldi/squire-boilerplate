@@ -1,0 +1,24 @@
+/*---------------------------------------------------------------------------*\
+   FORM LABEL
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  The labels used within forms.
+ *
+ */
+
+.o-form-label {
+  display: block;
+  margin-bottom: quarter( $ui-unit );
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1;
+}
+
+  /**
+   * (optional) text.
+   */
+  .o-form-label_optional {
+    font-weight: normal;
+    opacity: 0.85;
+  }

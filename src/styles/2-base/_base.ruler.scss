@@ -1,0 +1,27 @@
+/*---------------------------------------------------------------------------*\
+   HORIZONAL RULER
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Horizontal ruler.
+ *
+ */
+$hr-spacing:      $ui-unit * 2;
+$hr-color:        $ui-color-text;
+$hr-thickness:    3px;
+$hr-opacity:      1;
+$hr-max-width:    3.75rem;
+
+/**
+ * Default ruler
+ */
+hr {
+  display: block;
+  background-color: $hr-color;
+  border: none;
+  height: $hr-thickness;
+  max-width: $hr-max-width;
+  margin: $hr-spacing auto;
+  opacity: $hr-opacity;
+  border-radius: 10px;
+}

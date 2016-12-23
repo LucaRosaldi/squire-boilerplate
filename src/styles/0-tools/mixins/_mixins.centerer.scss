@@ -1,0 +1,34 @@
+/*---------------------------------------------------------------------------*\
+   CENTERER
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Centers the element in relation to the parent.
+ *
+ */
+
+/**
+ * Center the element vertically and horizonally.
+ */
+@mixin centerer {
+  display: block;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate( -50%, -50% );
+}
+  %centerer {
+    @include centerer;
+  }
+
+/**
+ * Center the element vertically.
+ */
+@mixin v-centerer {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY( -50% );
+}
+  %v-centerer {
+    @include v-centerer;
+  }

@@ -1,0 +1,22 @@
+/*---------------------------------------------------------------------------*\
+   TINT / SHADE COLOR
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Adds or removes percentage of white or black to a color, keeping the same hue.
+ *
+ */
+
+/**
+ * Add percentage of white to a color
+ */
+@function tint( $color, $percent ) {
+  @return mix( white, $color, $percent );
+}
+
+/**
+ * Add percentage of black to a color
+ */
+@function shade( $color, $percent ) {
+  @return mix( black, $color, $percent );
+}

@@ -1,0 +1,119 @@
+/*---------------------------------------------------------------------------*\
+   PAGINATION
+\*---------------------------------------------------------------------------*/
+/*
+ *
+ * Inline list of page links.
+ *
+ * Example markup:
+ *
+
+  <nav class="c-pagination" role="navigation">
+    <ul class="c-pagination_list">
+      <li class="c-pagination_item c-pagination_item--first">First</li>
+      <li class="c-pagination_item c-pagination_item--prev">Previous</li>
+      <li class="c-pagination_item">
+        <a class="c-pagination_link" href="/page/1">1</a>
+      </li>
+      <li class="c-pagination_item c-pagination_item--current">
+        <a class="c-pagination_link" href="/page/1">1</a>
+      </li>
+      <li class="c-pagination_item">
+        <a class="c-pagination_link" href="/page/3">1</a>
+      </li>
+      <li class="c-pagination_item c-pagination_item--next">First</li>
+      <li class="c-pagination_item c-pagination_item--last">Previous</li>
+    </ul>
+  </nav>
+
+ *
+ */
+$pagination-item-margin-right:        0;
+
+$pagination-item-padding-top:         .5em;
+$pagination-item-padding-bottom:      .5em;
+$pagination-item-padding-left:        1em;
+$pagination-item-padding-right:       1em;
+
+$pagination-item-border-width:        2px;
+$pagination-item-border-radius:       0;
+
+$pagination-item-border-color:        transparent;
+$pagination-item-background:          transparent;
+$pagination-item-color:               $gray-30;
+
+$pagination-link-border-color:        transparent;
+$pagination-link-background:          transparent;
+$pagination-link-color:               $gray-80;
+
+$pagination-link-hover-border-color:  $ui-color-accent;
+$pagination-link-hover-background:    transparent;
+$pagination-link-hover-color:         $ui-color-accent;
+
+$pagination-link-active-border-color: transparent;
+$pagination-link-active-background:   $ui-color-accent;
+$pagination-link-active-color:        $white;
+
+
+%pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  // Fallback for browsers which do not support flexbox.
+  .no-flexbox & {
+    @include clearfix;
+    display: inline-block;
+    > * {
+      display: block;
+      float: left;
+    }
+  }
+
+  span,
+  a {
+    position: relative;
+    display: inline-block;
+    padding: $pagination-item-padding-top $pagination-item-padding-right $pagination-item-padding-bottom $pagination-item-padding-left;
+    margin-right: px( $pagination-item-margin-right ) - $pagination-item-border-width;
+    border: $pagination-item-border-width solid;
+  }
+
+  // Disabled links, shown as <span> tags.
+  span {
+    border-color: $pagination-item-border-color;
+    background: $pagination-item-background;
+    color: $pagination-item-color;
+  }
+
+  // Enabled links.
+  a {
+    border-color: $pagination-link-border-color;
+    background: $pagination-link-background;
+    color: $pagination-link-color;
+
+    &:hover,
+    li:hover & {
+      z-index: 2;
+      border-color: $pagination-link-hover-border-color;
+      background: $pagination-link-hover-background;
+      color: $pagination-link-hover-color;
+    }
+  }
+
+  // Current page
+  &.is-active,
+  li.is-active > span,
+  li.is-active > a {
+    border-color: $pagination-link-active-border-color;
+    background: $pagination-link-active-background;
+    color: $pagination-link-active-color;
+  }
+
+}
+
+.pagination ul,
+.pagination ol, {
+  @extend .o-nav;
+  @extend %pagination;
+}

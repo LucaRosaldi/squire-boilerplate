@@ -1,0 +1,88 @@
+/*---------------------------------------------------------------------------*\
+   BUTTON PROGRESS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * A button that, when clicked, shows a loading message.
+ * Used for buttons which trigger a server-side action.
+ *
+ * Example markup:
+ *
+
+<a
+  class="c-progress-button [ c-progress-button--green ] [ js-progress-link | js-progress-submit ]"
+  href="#">
+  <span class="c-progress-button_text">
+    Your text
+  </span>
+  <span class="c-progress-button_indicator" aria-hidden="true">
+    <svg class="o-icon"><use xlink:href="#update"></use></svg>
+    <span class="o-icon-text">attendi un istante...</span>
+  </span>
+</a>
+
+ *
+ */
+
+.c-progress-button {
+  overflow: hidden;
+  padding: 0;
+  &, & > * {
+    @extend .o-button;
+    @extend .o-button--full;
+  }
+}
+.c-progress-button--green,
+.c-progress-button--green > * {
+  @extend .o-button--green;
+}
+
+  /**
+   * The button text.
+   */
+  .c-progress-button_text,
+  .c-progress-button_indicator {
+    transform: translateY( 0 );
+    transition: transform .15s ease;
+    &, &:hover { background: none; }
+  }
+
+  /**
+   * The progress indicator.
+   */
+  .c-progress-button_indicator {
+    @extend %ff-sans;
+    @include coverer;
+    top: 100%;
+    background: none;
+    text-transform: none;
+    opacity: 0.75;
+    &:hover { background: none; }
+  }
+    .c-progress-button_indicator .o-icon {
+      @extend .o-icon--s;
+      @extend .o-icon--thicker;
+      animation: button_progress_spin 1s infinite;
+      animation-play-state: paused;
+    }
+
+  /**
+   * The progress indicator, when the progress is active.
+   */
+  .c-progress-button.is-loading {
+    @extend .o-button--disabled;
+
+    .c-progress-button_text,
+    .c-progress-button_indicator {
+      transform: translateY( -100% );
+    }
+    .c-progress-button_indicator .o-icon {
+      animation-play-state: running;
+    }
+
+  }
+
+@keyframes button_progress_spin {
+  0%   { transform: rotate( 0deg ); }
+  100% { transform: rotate( 360deg ); }
+}

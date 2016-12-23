@@ -1,0 +1,30 @@
+/*---------------------------------------------------------------------------*\
+   GRADIENTS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Collection of commonly used gradients.
+ *
+ */
+
+/**
+ * Vertical highlight.
+ * Add a subtle white gradient to the top of the element.
+ */
+%mask-highlight {
+  background-image: linear-gradient( 180deg,
+    rgba( $white, 0.2 ) 0%,
+    rgba( $white, 0 ) 100%
+  );
+}
+
+/**
+ * Vertical shade.
+ * Add a subtle black gradient to the bottom of the element.
+ */
+%mask-shade {
+  background-image: linear-gradient( 0deg,
+    rgba( $black, 0.05 ) 0%,
+    rgba( $black, 0 ) 100%
+  );
+}

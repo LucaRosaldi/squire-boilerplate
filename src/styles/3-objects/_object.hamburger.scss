@@ -1,0 +1,98 @@
+/*---------------------------------------------------------------------------*\
+   OBJECT: HAMBURGER ICON
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  The toggle button for small screen navigation.
+ *
+ *  1. left/right padding between button area and bars
+ *  2. thickness of the button bars
+ *  3. spacing between button bars
+ *
+ */
+$o-hamburger-size:                   2rem;
+$o-hamburger-pad:                    0.25rem;    /* [1] */
+$o-hamburger-bar-thickness:          0.125rem;    /* [2] */
+$o-hamburger-bar-space:              0.33rem;    /* [3] */
+$o-hamburger-transition-duration:    250ms;
+$o-hamburger-color:                  $gray-50;
+$o-hamburger-active-color:           $gray-30;
+
+/**
+ * Hamburger button to toggle offcanvas navigation,
+ * displayed only on smaller screens.
+ */
+.o-hamburger {
+  .no-js & { display: none; }
+  position: absolute;
+  width: $o-hamburger-size;
+  height: $o-hamburger-size;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+  .o-hamburger span,
+  .o-hamburger span:before,
+  .o-hamburger span:after {
+    content: '';
+    display: block;
+    position: absolute;
+    text-indent: -9999px;
+    background: $o-hamburger-color;
+  }
+  .o-hamburger span {
+    top: ($o-hamburger-size / 2) - ($o-hamburger-bar-thickness / 2);
+    left: $o-hamburger-pad;
+    right: $o-hamburger-pad;
+    height: $o-hamburger-bar-thickness;
+    transition: background 0s $o-hamburger-transition-duration;
+  }
+  .o-hamburger span:before,
+  .o-hamburger span:after {
+    left: 0;
+    width: 100%;
+    height: $o-hamburger-bar-thickness;
+    transition-duration: $o-hamburger-transition-duration, $o-hamburger-transition-duration;
+    transition-delay: $o-hamburger-transition-duration, 0s;
+  }
+  .o-hamburger span:before {
+    top: -$o-hamburger-bar-thickness - $o-hamburger-bar-space;
+    transition-property: top, transform;
+  }
+  .o-hamburger span:after {
+    bottom: -$o-hamburger-bar-thickness - $o-hamburger-bar-space;
+    transition-property: bottom, transform;
+  }
+
+/**
+ * Hamburger modified to become a cross.
+ */
+.o-hamburger--close {
+  @extend .o-hamburger;
+
+  span {
+    background: none;
+  }
+  span:before,
+  span:after {
+    transition-delay: 0s, $o-hamburger-transition-duration;
+  }
+  span:before {
+    top: 0;
+    transform: rotate( 45deg );
+    background: $o-hamburger-active-color;
+  }
+  span:after {
+    bottom: 0;
+    transform: rotate( -45deg );
+    background: $o-hamburger-active-color;
+  }
+}
+
+/**
+ * Active state for the button.
+ */
+.o-hamburger.is-active {
+  @extend .o-hamburger--close;
+}

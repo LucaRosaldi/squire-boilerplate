@@ -1,0 +1,43 @@
+/*---------------------------------------------------------------------------*\
+   OBJECT: PAD
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Fluid padding.
+ *
+ **/
+$o-panel-min-padding:        $ui-unit;
+$o-panel-max-padding:        $ui-unit * 2;
+$o-panel-scaling:            2.25vw;
+
+$o-panel-color:              inherit;
+$o-panel-background:         $ui-color-mask;
+$o-panel-border:             0 solid $ui-color-border;
+
+/**
+ * Object container.
+ */
+.o-pad {
+  padding: $o-panel-min-padding;
+  @include bp-medium { padding: calc( #{$o-panel-min-padding} + #{$o-panel-scaling} ); }
+  @include bp-wide   { padding: $o-panel-max-padding; }
+}
+
+/**
+ * Side padding only.
+ */
+.o-pad--side {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/**
+ * Box with background and border.
+ */
+.o-pad--box {
+  position: relative;
+  display: block;
+  border: $o-panel-border;
+  background: $o-panel-background;
+  color: $o-panel-color;
+}

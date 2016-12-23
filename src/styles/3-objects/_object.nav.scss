@@ -1,0 +1,73 @@
+/*---------------------------------------------------------------------------*\
+   NAV
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Common navigation patterns.
+ *  Includes stacked, inline and inline-fit navs.
+ *
+ *  Example markup:
+ *
+
+<ul  class="o-nav">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Portfolio</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
+ *
+ */
+$nav-link-padding-edge:     quarter( $ui-unit );
+$nav-link-padding-side:     $ui-unit + half( $ui-unit );
+
+/**
+ * Stacked vertical navigation (default).
+ */
+.o-nav {
+  list-style: none;
+  margin-left: 0;
+}
+  .o-nav_item,
+  .o-nav_link {
+    display: block;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+
+/**
+ * Inline horizontal navigation.
+ */
+.o-nav--inline {
+  word-spacing: -.31em;
+
+  > * {
+    display: inline-block;
+    word-spacing: 0;
+  }
+}
+
+
+/**
+ * Distributed horizontal navigation.
+ *
+ * forces a o-nav to occupy 100% of the available width of its parent.
+ */
+.o-nav--fit {
+  display: table;
+  width: 100%;
+
+  > * {
+    display: table-cell;
+    margin-right: 0;
+  }
+}
+
+
+  /**
+   *  Navigation with big blocky links.
+   */
+  .o-nav_link {
+    padding: $nav-link-padding-edge $nav-link-padding-side;
+  }

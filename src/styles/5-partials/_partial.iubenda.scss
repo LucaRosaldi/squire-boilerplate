@@ -1,0 +1,21 @@
+/*---------------------------------------------------------------------------*\
+   PARTIAL: IUBENDA COOKIE POLICY
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Banner for Iubenda.
+ *
+ */
+
+#iubenda-cs-banner {
+  transform: translateY( 100vh );
+  animation: iubSlideUp 800ms ease 3000ms both;
+}
+#iubenda-cs-banner,
+.iubenda-cs-content {
+  background: rgba( 0, 0, 0, 0.65 ) !important;
+}
+
+@keyframes iubSlideUp {
+  to { transform: translateY( calc( 100vh - 100% ) ); }
+}

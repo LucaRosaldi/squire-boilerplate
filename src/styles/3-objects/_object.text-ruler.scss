@@ -1,0 +1,54 @@
+/*---------------------------------------------------------------------------*\
+   OBJECT: TEXT RULER
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * A ruler which has text at the center.
+ *
+ */
+$o-text-ruler-stroke:   1px;
+$o-text-ruler-color:    currentColor;
+$o-text-ruler-opacity:  1;
+$o-text-rule-gutters:   1em;
+$o-text-rule-min-width: 2em;
+$o-text-ruler-margin:   $ui-unit;
+
+/**
+ * Default text ruler.
+ */
+.o-text-ruler {
+  display: flex;
+  align-items: center;
+  margin: $o-text-ruler-margin auto;
+  white-space: nowrap;
+
+  &:before,
+  &:after {
+    content: '';
+    flex-grow: 1;
+    min-width: $o-text-rule-min-width;
+    height: $o-text-ruler-stroke;
+    background: $o-text-ruler-color;
+    opacity: $o-text-ruler-opacity;
+  }
+  &:before {
+    margin-right: $o-text-rule-gutters;
+  }
+  &:after  {
+    margin-left: $o-text-rule-gutters;
+  }
+}
+
+/**
+ * Align variants.
+ */
+.o-text-ruler--left::before,
+.o-text-ruler--right::after {
+  display: none;
+}
+
+/**
+ * Spacing variants.
+ */
+.o-text-ruler--spaced { margin: $o-text-ruler-margin * 2 auto; }
+.o-text-ruler--compressed { margin: $o-text-ruler-margin / 2 auto; }

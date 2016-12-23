@@ -1,0 +1,21 @@
+/*---------------------------------------------------------------------------*\
+   LINKS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Basic styles for links.
+ *
+ */
+
+a {
+  color: inherit;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+
+p a {
+  @extend %link-bordered;
+  border-style: dotted;
+}

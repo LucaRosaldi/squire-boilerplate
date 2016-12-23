@@ -1,0 +1,67 @@
+/*---------------------------------------------------------------------------*\
+    BORDERED LINK
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Link with a simple border placed on bottom.
+ *
+ */
+
+/**
+ * Bordered link.
+ * Link with a simple border placed on bottom.
+ */
+%link-bordered {
+  text-decoration: none;
+  color: inherit;
+  border-width: 0;
+  border-style: solid;
+  &:hover {
+    border-bottom-width: 1px;
+  }
+}
+
+/**
+ * Bordered link.
+ * Link with a simple border placed on bottom.
+ */
+%link-highlight {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  overflow: hidden;
+  margin: 0;
+  text-decoration: none;
+  color: inherit;
+
+  // the expanding background
+  &:before {
+    @extend %coverer;
+    content: '';
+    background-color: currentColor;
+    opacity: 0.1;
+    transform: translateY( 100% );
+    transition: transform 150ms ease-in;
+    will-change: transform;
+    backface-visibility: none;
+  }
+  &:hover:before {
+    transform: translateY( 0 );
+    transition: transform 250ms ease-out;
+  }
+}
+
+/**
+ * Bordered link.
+ * Link with a simple border placed on bottom.
+ */
+%link-medium {
+  text-decoration: none;
+  background-image: linear-gradient( to bottom,
+    transparent 50%,
+    currentColor 50%
+  );
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 1.05em;
+}

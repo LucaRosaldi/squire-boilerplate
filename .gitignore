@@ -1,4 +1,5 @@
 .DS_Store
 .DS_store
-.htaccess
-node_modules
+*.map
+/node_modules
+/public/data/config.json

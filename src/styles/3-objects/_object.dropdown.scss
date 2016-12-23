@@ -1,0 +1,103 @@
+/*---------------------------------------------------------------------------*\
+   DROPDOWN
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Hidden popovers which are displayed when a toggler element
+ *  is hovered or clicked.
+ *
+ *  Example markup:
+ *
+
+  <div class="o-dropdown [ o-dropdown--hover ] [ o-dropdown--right ]" [ role="navigation" ]>
+    <ul class="o-dropdown_menu">
+      <li class="o-dropdown_menu_item">
+        <a class="o-dropdown_link" href="#">
+          A dropdown link.
+        </a>
+      </li>
+    </ul>
+  </div>
+
+ *
+ */
+$dropdown-min-width:                    10rem;    // 160px
+
+$dropdown-transition-duration-in:       150ms;
+$dropdown-transition-duration-out:      150ms;
+
+/**
+ * Ensure parent element has relative positioning.
+ */
+.has-dropdown {
+  position: relative;
+}
+
+/**
+ * Dropdown, hidden by default.
+ */
+.o-dropdown {
+  position: absolute;
+  z-index: layer( 'dropdown' );
+  top: 100%; left: 0;
+
+  min-width: $dropdown-min-width;
+  margin: 0; padding: 0;
+  padding-top: $ui-unit;
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d( 0, $ui-unit, 0 );
+  transition: transform $dropdown-transition-duration-out ease-in,
+              opacity $dropdown-transition-duration-out linear,
+              visibility 0ms linear $dropdown-transition-duration-out;
+}
+.o-dropdown--center {
+  transform: translate3d( -50%, $ui-unit, 0 );
+}
+.o-dropdown--right {
+  left: auto;
+  right: 0;
+}
+
+/**
+ * Active state (dropdown becomes visible).
+ */
+.o-dropdown.is-active,
+*:hover + .o-dropdown--hover,
+.o-dropdown--hover:hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d( 0, 0, 0 );
+  transition: transform $dropdown-transition-duration-in ease-in,
+              opacity $dropdown-transition-duration-in linear,
+              visibility 0ms linear;
+}
+.o-dropdown--center.is-active,
+*:hover + .o-dropdown--hover.o-dropdown--center,
+.o-dropdown--hover.o-dropdown--center:hover {
+  transform: translate3d( -50%, 0, 0 );
+}
+
+  /**
+   * Menu inside the dropdown
+   */
+  .o-dropdown_menu {
+    @extend .o-nav;
+    @include arrow( top, center, $ui-color-mask );
+    white-space: nowrap;
+  }
+    .o-dropdown_menu_item {
+      display: block;
+    }
+      .o-dropdown_link {
+        display: block;
+        font-size: 0.85em;
+        padding: 1em;
+        background-color: $ui-color-mask;
+        color: $ui-color-accent;
+      }
+      .o-dropdown_link:hover {
+        background-color: $ui-color-accent;
+        color: $white;
+      }

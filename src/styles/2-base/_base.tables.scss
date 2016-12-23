@@ -1,0 +1,62 @@
+/*---------------------------------------------------------------------------*\
+   TABLES
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Basic styles for tables.
+ *
+ */
+$table-padding:             half( $ui-unit );
+$table-border:              1px solid $gray-20;
+
+$table-head-background:     $gray;
+$table-head-color:          #fff;
+$table-body-background:     transparent;
+$table-body-color:          $ui-color-text;
+$table-stripes-background:  #f5f5f5;
+
+table {
+  width: 100%;
+}
+  thead {
+    border-right: $table-border;
+    border-bottom: $table-border;
+    border-color: $table-head-background;
+    background-color: $table-head-background;
+  }
+  th {
+    padding: $table-padding;
+    text-align: left;
+    border-top: $table-border;
+    border-left: $table-border;
+    border-color: $table-head-background;
+    color: $table-head-color;
+  }
+  tbody {
+    border-left: $table-border;
+    border-top: $table-border;
+    background-color: $table-body-background;
+  }
+  td {
+    padding: $table-padding;
+    text-align: left;
+    border-bottom: $table-border;
+    border-right: $table-border;
+    color: $table-body-color;
+  }
+
+/**
+ * Cell alignments
+ */
+[colspan] {
+  text-align: center;
+}
+[colspan="1"] {
+  text-align: left;
+}
+[rowspan] {
+  vertical-align: middle;
+}
+[rowspan="1"] {
+  vertical-align: top;
+}

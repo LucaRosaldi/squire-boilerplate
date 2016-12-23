@@ -1,0 +1,42 @@
+/*---------------------------------------------------------------------------*\
+   IMAGES
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Basic styles for images.
+ *
+ */
+
+/**
+ * Fluid images.
+ *
+ * 1. Fluid images for responsive purposes.
+ * 2. Offset `alt` text from surrounding copy.
+ * 3. Removes the whitespace under `img` elements.
+ */
+img {
+  max-width: 100%;  /* [1] */
+  font-style: italic;   /* [2] */
+  vertical-align: middle;  /* [3] */
+}
+
+/**
+ * Fixe issue with sprites in embedded Google Maps.
+ */
+#map-canvas img,
+.map-canvas img {
+  max-width: none;
+}
+
+/**
+ * The figure element includes an image and a caption.
+ */
+figure {
+  display: inline-block;
+}
+  figcaption {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 0.875em;
+    background-color: $ui-color-mask;
+  }

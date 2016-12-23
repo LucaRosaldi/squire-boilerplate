@@ -1,0 +1,23 @@
+/*---------------------------------------------------------------------------*\
+   MATCH
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * In a SASS list (array), returns the key,
+ * passing the value as a parameter, or vice-versa.
+ *
+ * @param  {string} $needle   The key or the value to search for
+ * @param  {list}   $haystack The list (array)
+ * @return {string}           The key if value was given, the value if key was given
+ *
+ */
+@function match( $needle, $haystack ) {
+  @each $item in $haystack {
+    $index: index( $item, $needle );
+    @if $index {
+      $return: if( $index == 1, 2, $index );
+      @return nth( $item, $return );
+    }
+  }
+  @return false;
+}

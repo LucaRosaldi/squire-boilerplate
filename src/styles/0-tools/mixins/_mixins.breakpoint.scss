@@ -1,0 +1,99 @@
+/*---------------------------------------------------------------------------*\
+   MIXIN: BREAKPOINTS / MEDIA QUERIES
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Create media queries for specific widths.
+ *
+ */
+$bp-medium: 640px !default;
+$bp-large:  960px !default;
+$bp-wide:   1140px !default;
+$bp-xwide:  1320px !default;
+
+$bp-debug: false;
+
+/**
+ * Generate a media query for the desired width.
+ *
+ * @param   $breakpoint  The desired breakpoint value
+ * @param   $feature    Operator
+ * @param   $media       Whether this is a min-width or max-width breakpoint
+ * @return  $feature    Whether this is a min-width or max-width breakpoint
+ */
+@mixin bp( $breakpoint, $feature: 'min-width', $media: screen ) {
+  @media #{$media} and ( #{$feature}: $breakpoint ) {
+    @content;
+  }
+}
+
+/**
+ * Shortcuts for common breakpoints.
+ */
+@mixin bp-small {
+  @include bp( $bp-medium, 'max-width' ) {
+    @content;
+  }
+  @if ( $bp-debug == true ) {
+
+  }
+}
+@mixin bp-medium {
+  @include bp( $bp-medium ) {
+    @content;
+  }
+}
+@mixin bp-till-medium {
+  @include bp( $bp-large, 'max-width' ) {
+    @content;
+  }
+}
+@mixin bp-large {
+  @include bp( $bp-large ) {
+    @content;
+  }
+}
+@mixin bp-till-large {
+  @include bp( $bp-wide, 'max-width' ) {
+    @content;
+  }
+}
+@mixin bp-wide {
+  @include bp( $bp-wide ) {
+    @content;
+  }
+}
+@mixin bp-till-wide {
+  @include bp( $bp-xwide, 'max-width' ) {
+    @content;
+  }
+}
+@mixin bp-xwide {
+  @include bp( $bp-xwide ) {
+    @content;
+  }
+}
+
+/**
+ * Debug breakpoints with a visual indicator.
+ */
+@if ( $bp-debug == true ) {
+  html::after {
+    content: 'breakpoint debug';
+    position: fixed;
+    z-index: 999999;
+    bottom: 0; right: 0;
+    width: 100%;
+    padding: 0.5em;
+    font-size: 12px;
+    text-align: right;
+    background: $black;
+    color: $white;
+    opacity: 0.85;
+    @include bp-small  { background: #f2c57c; content: 'small'; }
+    @include bp-medium { background: #c99f73; content: 'medium';  }
+    @include bp-large  { background: #7fb685; content: 'large'; }
+    @include bp-wide   { background: #426a5a; content: 'wide'; }
+    @include bp-xwide  { background: #ef6f6c; content: 'extra wide'; }
+  }
+}

@@ -1,0 +1,58 @@
+/*---------------------------------------------------------------------------*\
+   PARTIAL: FOOTER
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Topbar navigation.
+ *
+ */
+
+/**
+ * Topbar for small screens.
+ * Navigation is offcanvas, with a toggle button.
+ */
+.p-footer {
+  margin-top: double( $ui-unit );
+}
+  .p-footer_content {
+    @extend .g-wrap;
+    padding: $ui-unit;
+  }
+  .p-footer .c-nav {
+    display: block;
+  }
+    .p-footer .c-nav_section {
+      text-align: left;
+    }
+      .p-footer .c-logo {
+        margin-top: multiply( $ui-unit, 2.25 );
+        font-size: em( 15px );
+      }
+      .p-footer .c-nav_label {
+        color: $gray-40;
+      }
+      .p-footer .c-nav_link,
+      .p-footer .c-nav_cta {
+        opacity: 0.65;
+        &:hover { opacity: 1; }
+      }
+
+@include bp-wide {
+
+  .p-footer .c-nav {
+    max-width: none;
+    padding: 0;
+  }
+    .p-footer .c-nav_section {
+      float: left;
+      width: auto;
+      padding: multiply( $ui-unit, 1.5 );
+    }
+      .p-footer .c-logo {
+        margin-top: multiply( $ui-unit, 3.25 );
+      }
+      .p-footer .c-nav_label {
+        margin-bottom: half( $ui-unit );
+      }
+
+}

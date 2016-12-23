@@ -1,0 +1,20 @@
+/*---------------------------------------------------------------------------*\
+   UTILITY: COLORS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Utility classes for colors.
+ *
+ */
+
+.u-color-accent { color: $ui-color-accent !important; }
+.u-color-text   { color: $ui-color-text !important; }
+.u-color-white  { color: $white !important; }
+.u-color-gray   { color: $gray-40 !important; }
+
+// Add custom colors here
+.u-color-black  { color: $gray-dark !important; }
+.u-color-blue   { color: $blue !important; }
+.u-color-orange { color: $orange !important; }
+.u-color-green  { color: $green !important; }
+.u-color-yellow { color: $yellow !important; }

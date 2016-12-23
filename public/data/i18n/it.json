@@ -1,0 +1,18 @@
+{
+	"site": {
+		"browsehappy-cta": "Scarica un nuovo browser",
+		"browsehappy-message": "Il browser che stai utilizzando è obsoleto. Scarica un browser aggiornato per proseguire la navigazione.",
+		"browsehappy-title": "Aggiorna il tuo browser",
+		"footer-contacts": "Contatti",
+		"footer-copyright": "Tutti i diritti riservati",
+		"footer-credits": "Credits",
+		"footer-holding": "Azienda S.p.A",
+		"footer-privacy": "Privacy",
+		"footer-vat": "P.IVA"
+	},
+	"home": {
+		"head-title": "Squire – A minimal boilerplate",
+		"head-description": "Squire is a simple boilerplate for simple websites.",
+		"head-keywords": ""
+	}
+}

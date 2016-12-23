@@ -1,0 +1,14 @@
+/*---------------------------------------------------------------------------*\
+   UTILITY: VISIBILITY
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Utility classes for hiding things.
+ *
+ */
+
+.u-hide             { display: none !important; }
+.u-hide\@s          { @include bp-small  { display: none !important; } }
+.u-hide\@m          { @include bp-medium { display: none !important; } }
+.u-hide\@l          { @include bp-large  { display: none !important; } }
+.u-screenreader     { @include visually-hidden(); }

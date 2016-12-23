@@ -1,0 +1,53 @@
+/*---------------------------------------------------------------------------*\
+   WIDGET
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Widgets are special content blocks which can be used in modals or sidebars.
+ *
+ *  Example markup:
+ *
+
+<section class="o-widget">
+  <header class="o-widget_header"></header>
+  <div class="o-widget_content"></div>
+  <footer class="o-widget_footer"></footer>
+</section>
+
+ *
+ */
+$o-widget-background:     $ui-color-mask;
+$o-widget-border-radius:  4px;
+
+.o-widget {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  background: $o-widget-background;
+  border-radius: $o-widget-border-radius;
+  text-align: center;
+}
+.o-widget--l    { max-width: 580px; }
+.o-widget--xl   { max-width: 760px; }
+.o-widget--full { max-width: none; }
+
+  .o-widget_header {
+    border-radius: $o-widget-border-radius $o-widget-border-radius 0 0;
+  }
+
+  .o-widget_content {
+  }
+
+  .o-widget_footer {
+    border-radius: 0 0 $o-widget-border-radius $o-widget-border-radius;
+  }
+
+    .o-widget_title {
+    }
+
+    .o-widget_description {
+    }
+
+    .o-widget_link {
+    }

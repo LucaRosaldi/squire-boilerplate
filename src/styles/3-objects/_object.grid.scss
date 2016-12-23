@@ -1,0 +1,177 @@
+/*---------------------------------------------------------------------------*\
+   GRID SYSTEM
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * A simple grid system based on floats.
+ *
+ */
+$g-gutter: $ui-unit;
+
+/**
+ * Flexbox container.
+ */
+.g-flex {
+  flex: 0 1 auto;
+}
+
+/**
+ * Row of cells.
+ *
+ * 1. stretch the odd cells to fill the container width
+ */
+.g-row {
+  @extend .g-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.g-row--fill       { flex: 1 0 auto; }  /* 1 */
+.g-row--start      { justify-content: flex-start; }
+.g-row--center     { justify-content: center; }
+.g-row--end        { justify-content: flex-end; }
+.g-row--between    { justify-content: space-between; }
+.g-row--around     { justify-content: space-around; }
+.g-row--top        { align-items: flex-start; }
+.g-row--middle     { align-items: center; }
+.g-row--bottom     { align-items: flex-end; }
+.g-row--reverse    { flex-direction: row-reverse; }
+
+
+
+/**
+ * Grid cell ( column ).
+ */
+[class*="g-cell"] {
+  @extend .g-flex;
+}
+
+.g-cell            { width: 100%; }
+.g-cell-1\/2       { width: $one-half; }
+.g-cell-1\/3       { width: $one-third; }
+.g-cell-2\/3       { width: $two-thirds; }
+.g-cell-1\/4       { width: $one-quarter; }
+.g-cell-3\/4       { width: $three-quarters; }
+.g-cell-2\/5       { width: $two-fifths; }
+.g-cell-3\/5       { width: $three-fifths; }
+
+.g-order-1         { order: 1; }
+.g-order-2         { order: 2; }
+.g-order-3         { order: 3; }
+
+@include bp-medium {
+.g-row--fill\@m    { flex: 1 0 auto; }
+.g-row--start\@m   { justify-content: flex-start; }
+.g-row--center\@m  { justify-content: center; }
+.g-row--end\@m     { justify-content: flex-end; }
+.g-row--between\@m { justify-content: space-between; }
+.g-row--around\@m  { justify-content: space-around; }
+.g-row--top\@m     { align-items: flex-start; }
+.g-row--middle\@m  { align-items: center; }
+.g-row--bottom\@m  { align-items: flex-end; }
+.g-row--reverse\@m { flex-direction: row-reverse; }
+
+.g-cell-full\@m    { width: 100%; }
+.g-cell-1\/2\@m    { width: $one-half; }
+.g-cell-1\/3\@m    { width: $one-third; }
+.g-cell-2\/3\@m    { width: $two-thirds; }
+.g-cell-1\/4\@m    { width: $one-quarter; }
+.g-cell-3\/4\@m    { width: $three-quarters; }
+.g-cell-2\/5\@m    { width: $two-fifths; }
+.g-cell-3\/5\@m    { width: $three-fifths; }
+
+.g-order-1\@m      { order: 1; }
+.g-order-2\@m      { order: 2; }
+.g-order-3\@m      { order: 3; }
+}
+
+@include bp-large {
+.g-row--fill\@l    { flex: 1 0 auto; }
+.g-row--start\@l   { justify-content: flex-start; }
+.g-row--center\@l  { justify-content: center; }
+.g-row--end\@l     { justify-content: flex-end; }
+.g-row--between\@l { justify-content: space-between; }
+.g-row--around\@l  { justify-content: space-around; }
+.g-row--top\@l     { align-items: flex-start; }
+.g-row--middle\@l  { align-items: center; }
+.g-row--bottom\@l  { align-items: flex-end; }
+.g-row--reverse\@l { flex-direction: row-reverse; }
+
+.g-cell-full\@l    { width: 100%; }
+.g-cell-1\/2\@l    { width: $one-half; }
+.g-cell-1\/3\@l    { width: $one-third; }
+.g-cell-2\/3\@l    { width: $two-thirds; }
+.g-cell-1\/4\@l    { width: $one-quarter; }
+.g-cell-3\/4\@l    { width: $three-quarters; }
+.g-cell-2\/5\@l    { width: $two-fifths; }
+.g-cell-3\/5\@l    { width: $three-fifths; }
+
+.g-order-1\@l      { order: 1; }
+.g-order-2\@l      { order: 2; }
+.g-order-3\@l      { order: 3; }
+}
+
+@include bp-wide {
+.g-row--fill\@w    { flex: 1 0 auto; }
+.g-row--start\@w   { justify-content: flex-start; }
+.g-row--center\@w  { justify-content: center; }
+.g-row--end\@w     { justify-content: flex-end; }
+.g-row--between\@w { justify-content: space-between; }
+.g-row--around\@w  { justify-content: space-around; }
+.g-row--top\@w     { align-items: flex-start; }
+.g-row--middle\@w  { align-items: center; }
+.g-row--bottom\@w  { align-items: flex-end; }
+.g-row--reverse\@w { flex-direction: row-reverse; }
+
+.g-cell-full\@w    { width: 100%; }
+.g-cell-1\/2\@w    { width: $one-half; }
+.g-cell-1\/3\@w    { width: $one-third; }
+.g-cell-2\/3\@w    { width: $two-thirds; }
+.g-cell-1\/4\@w    { width: $one-quarter; }
+.g-cell-3\/4\@w    { width: $three-quarters; }
+.g-cell-2\/5\@w    { width: $two-fifths; }
+.g-cell-3\/5\@w    { width: $three-fifths; }
+
+.g-order-1\@w      { order: 1; }
+.g-order-2\@w      { order: 2; }
+.g-order-3\@w      { order: 3; }
+}
+
+/**
+ * Centered container for the grid.
+ * By default, grid width is the largest breakpoint.
+ */
+.g-wrap {
+  width: 100%;
+  max-width: $bp-wide;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $g-gutter / 2;
+  padding-right: $g-gutter / 2;
+}
+.g-wrap--s {
+  max-width: $bp-medium;
+}
+.g-wrap--m {
+  max-width: $bp-large;
+}
+.g-wrap--l {
+  max-width: $bp-wide;
+}
+.g-wrap--w {
+  max-width: $bp-xwide;
+}
+
+/**
+ * Full-height container with centered content.
+ * Useful for heroes and modals.
+ */
+.g-cover {
+  @extend .g-row;
+  min-height: 100vh;
+}

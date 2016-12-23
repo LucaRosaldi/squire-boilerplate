@@ -1,0 +1,21 @@
+/*---------------------------------------------------------------------------*\
+   UTILITY: OVERFLOW
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Utility classes for the overflow property.
+ *
+ */
+
+.u-ov-h   { overflow: hidden !important; }
+.u-ov-v   { overflow: visible !important; }
+.u-ov-s   { overflow: scroll !important; }
+.u-ov-a   { overflow: auto !important; }
+.u-ovx-h  { overflow-x: hidden !important; }
+.u-ovx-v  { overflow-x: visible !important; }
+.u-ovx-s  { overflow-x: scroll !important; }
+.u-ovx-a  { overflow-x: auto !important; }
+.u-ovy-h  { overflow-y: hidden !important; }
+.u-ovy-v  { overflow-y: visible !important; }
+.u-ovy-s  { overflow-y: scroll !important; }
+.u-ovy-a  { overflow-y: auto !important; }

@@ -1,0 +1,29 @@
+/*---------------------------------------------------------------------------*\
+   CODE
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Styling for code blocks.
+ *
+ */
+
+/**
+ * Use an explicit font stack to ensure browsers render correct `line-height`.
+ */
+pre,
+code {
+  @extend %ff-mono;
+  white-space: pre;
+  overflow: auto;
+  font-style: normal;
+}
+code {
+  display: inline-block;
+  padding: 0 0.5em;
+  vertical-align: top;
+  background-color: tint( $ui-color-accent, 90 );
+}
+  pre code {
+    padding: 0;
+    background-color: none;
+  }

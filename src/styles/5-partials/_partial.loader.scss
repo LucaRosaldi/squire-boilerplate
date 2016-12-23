@@ -1,0 +1,43 @@
+/*---------------------------------------------------------------------------*\
+   LOADER
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * The site loading screen.
+ *
+ */
+
+/**
+ * Container.
+ *
+ * 1. Hidden state
+ * 2. Visible state
+ * 3. Do not show if javascript is disabled
+ */
+.p-loader {
+  @extend .g-cover;
+  position: fixed;
+  z-index: layer( 'loader' );
+  overflow: hidden;
+  background-color: $ui-color-mask;
+  color: $ui-color-text;
+
+  /* [1] */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1000ms, visibility 0s linear 1000ms;
+
+  /* [2] */
+  body.is-loading & {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1000ms, visibility 0s;
+  }
+
+  /* [3] */
+  .no-js & { display: none; }
+}
+  .p-loader_center {
+    @extend .g-row;
+    @extend .g-row--center;
+  }

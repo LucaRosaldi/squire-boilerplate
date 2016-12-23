@@ -1,0 +1,22 @@
+/*---------------------------------------------------------------------------*\
+   SETTINGS: COLORS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Default colors.
+ *
+ */
+
+// Define project-specific colors here.
+// Use prefixed colors to avoids conflicts.
+
+$ui-color-headings:     $gray;
+$ui-color-text:         $gray;
+$ui-color-accent:       $blue;
+$ui-color-mask:         $gray-5;
+$ui-color-border:       $gray-10;
+
+$ui-color-success:      $green;
+$ui-color-warning:      $orange;
+$ui-color-error:        $red;
+$ui-color-info:         $blue;

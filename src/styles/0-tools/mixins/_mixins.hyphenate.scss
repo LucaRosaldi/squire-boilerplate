@@ -1,0 +1,26 @@
+/*---------------------------------------------------------------------------*\
+    HYPHENATE
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Cross-browser technique to hyphenate long words,
+ *  preventing them from breaking the design.
+ *
+ *  Note: Chrome does not support hyphenation (yet),
+ *  so words are splitted without the hyphen (–).
+ *
+ *  @see  https://justmarkup.com/log/2015/07/31/dealing-with-long-words-in-css/
+ *
+ */
+
+@mixin hyphenate {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+  %hyphenate {
+    @include hyphenate;
+  }

@@ -1,0 +1,17 @@
+/*---------------------------------------------------------------------------*\
+    UTILITY: BACKGROUND
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  @element  Background
+ *  @section  Utilities
+ *  @description  Utility classes for background colors.
+ *
+ */
+
+.u-bg-accent      { background-color: $ui-color-accent !important; }
+.u-bg-mask        { background-color: $ui-color-mask !important; }
+.u-bg-white       { background-color: $white !important; }
+.u-bg-transparent { background-color: transparent !important; }
+
+// Add custom colors here

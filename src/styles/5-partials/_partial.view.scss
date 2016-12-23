@@ -1,0 +1,33 @@
+/*---------------------------------------------------------------------------*\
+   PARTIAL: VIEW
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * The main view (page).
+ *
+ */
+
+/**
+ * View wrapper.
+ */
+.p-view-wrap {
+  overflow: hidden;
+}
+
+/**
+ * View container.
+ */
+.p-view {
+  min-height: 100vh;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/**
+ * Dark version.
+ */
+.p-view--dark {
+  background: $black;
+  color: rgba( $white, 0.75 );
+}

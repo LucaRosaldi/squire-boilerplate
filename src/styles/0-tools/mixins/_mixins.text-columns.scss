@@ -1,0 +1,13 @@
+/*---------------------------------------------------------------------------*\
+   TEXT COLUMNS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Creates text columns.
+ *
+ */
+@mixin text-columns( $col-count: 2, $col-width: 320px, $col-gap: 2em ) {
+  column-count: $col-count;
+  column-width: $col-width;
+  column-gap: $col-gap;
+}

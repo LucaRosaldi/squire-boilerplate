@@ -1,0 +1,38 @@
+/*---------------------------------------------------------------------------*\
+   OBJECT: TEXT GRADIENT
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Gradient under text with an image or a linear-gradient. Graceful degradation
+ * to full color on browser which do not support background-clip property.
+ *
+ */
+
+/**
+ * Gradient under text.
+ *
+ * 1. compensate with padding to avoid clipped text on ascenders and descenders
+ * 2. add gradient only on supporting browsers
+ */
+.o-text-gradient {
+  display: inline-block;
+  position: relative;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* [1] */
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: -1em;
+  margin-bottom: -1em;
+
+  /* [2] */
+  .no-backgroundcliptext & { background: none !important; }
+}
+
+/**
+ * Colors.
+ */
+.o-text-gradient {
+}

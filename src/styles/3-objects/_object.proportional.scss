@@ -1,0 +1,44 @@
+/*---------------------------------------------------------------------------*\
+   OBJECT: PROPORTIONAL
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Container that respects a given aspect ratio.
+ * Useful for iframe, embeds and images which are inside grid layouts.
+ *
+ * 1. Default cropping is a 1:1 ratio (i.e. a perfect square).
+ *
+ */
+
+.o-proportional {
+  position: relative;
+
+  /* [1] */
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+  }
+
+  > * {
+    @extend %coverer;
+    height: auto;
+  }
+
+}
+.o-proportional--half::before {
+  padding-top: 50%;
+}
+.o-proportional--3\:2::before {
+  padding-top: 66.6666%;
+}
+.o-proportional--4\:3::before {
+  padding-top: ( 3 / 4 ) * 100%;
+}
+.o-proportional--16\:9::before {
+  padding-top: ( 9 / 16 ) * 100%;
+}
+.o-proportional--21\:9::before {
+  padding-top: ( 9 / 21 ) * 100%;
+}

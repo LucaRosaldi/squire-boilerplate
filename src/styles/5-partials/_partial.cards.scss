@@ -1,0 +1,40 @@
+/*---------------------------------------------------------------------------*\
+    CARDS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  List of cards.
+ *
+ */
+
+.p-cards {
+  @extend .o-nav;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 1.5rem;
+  @include bp-medium { padding: 2rem; }
+}
+
+  .p-cards_item {
+    display: flex;
+    flex-basis: 316px;
+    padding: 0 0 1.5rem;
+    @include bp-medium { padding: 0 1rem 2rem; }
+    width: 100%;
+    margin-top: 0;
+    .no-flexbox & { float: left; }
+
+    // > 640px, 2 items/row
+    @media screen and (min-width: 42em) and ( max-width: 60em ) {
+      width: 50%;
+      .no-flexbox &:nth-child(2n+1) { clear: both; }
+    }
+
+    // > 960px, 3 items/row
+    @media screen and (min-width: 60em) {
+      width: 33.3333%;
+      .no-flexbox &:nth-child(3n+1) { clear: both; }
+    }
+
+  }

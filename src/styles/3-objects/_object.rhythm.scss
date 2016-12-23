@@ -1,0 +1,15 @@
+/*---------------------------------------------------------------------------*\
+    VERTICAL RHYTHM
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  This a beautifully simple selector for managing vertical rhythm,
+ *  firstly introduced by Heydon Pickering.
+ *
+ *  http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+ *
+ */
+$rhythm-unit: $ui-unit;
+$rhythm-scaling: 1.25vw;
+
+.o-rhythm { @include rhythm( $rhythm-unit, $rhythm-scaling ); }

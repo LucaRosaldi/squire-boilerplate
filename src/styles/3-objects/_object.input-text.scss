@@ -1,0 +1,55 @@
+/*---------------------------------------------------------------------------*\
+    TEXT INPUT
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  Form inputs which require the user to insert text.
+ *
+ */
+
+.o-input-text {
+  @extend %transition !optional;
+
+  // Reset default styles
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border-radius: 0;
+  -webkit-appearance: none;
+
+  // Dimensions
+  width: 100%;
+  padding: 1em;
+
+  // Typography
+  font-size: 1rem;
+  font-weight: bold;
+
+  // Colors
+  background-color: $gray-10;
+  border: 1px solid rgba( $black, 0.15 );
+  color: $ui-color-text;
+
+  // Effects
+  border-radius: 0;
+
+  // Hover state
+  &:hover {
+    background-color: $gray-5;
+  }
+
+  // Focus state
+  &:focus {
+    border-color: $ui-color-accent;
+    background: $white;
+  }
+
+  // Disabled state
+  &:disabled,
+  &[disabled],
+  &[disabled]:hover {
+    user-select: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+}

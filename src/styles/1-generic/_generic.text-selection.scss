@@ -1,0 +1,21 @@
+/*---------------------------------------------------------------------------*\
+   GENERIC: TEXT SELECTION
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Style the text when it is selected.
+ *
+ */
+$selection-background:   rgba( $ui-color-accent, .2 );
+$selection-color:        inherit;
+
+::-moz-selection {
+  background: $selection-background;
+  color: $selection-color;
+  text-shadow: none;
+}
+::selection {
+  background: $selection-background;
+  color: $selection-color;
+  text-shadow: none;
+}

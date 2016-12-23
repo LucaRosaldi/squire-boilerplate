@@ -1,0 +1,78 @@
+/*---------------------------------------------------------------------------*\
+   UNIT FUNCTIONS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Utility function for working with units (mostly px, em and rem).
+ *
+ */
+
+/**
+ * Strip unit from a value and return only the number.
+ *
+ * @param  {string}   $value  Value to strip unit from.
+ * @return {integer}          Unitless value.
+ */
+@function strip-unit( $value ) {
+  @return $value / ( $value * 0 + 1 );
+}
+
+/**
+ * Return a em value from a px value.
+ *
+ * @param  {string|int} $val   The px value to convert.
+ * @return {string}            The em value.
+ */
+@function em( $val ) {
+
+  // If a pixel value is passed, return it untouched.
+  @if ( unit( $val ) == 'em' ) { @return $val; }
+
+  // If a rem value is passed, return it converted in em.
+  @if ( unit( $val ) == 'rem' ) { @return $val * 1em; }
+
+  // Strip units from px values.
+  @if not unitless( $val )  { $val: strip-unit( $val ); }
+
+  // Return the em value.
+  @return ( $val / 16 ) * 1em;
+}
+
+/**
+ * Return a rem value from a px value.
+ *
+ * @param  {string|int} $val   The px value to convert.
+ * @return {string}            The rem value.
+ */
+@function rem( $val ) {
+
+  // If a pixel value is passed, return it untouched.
+  @if ( unit( $val ) == 'rem' ) { @return $val; }
+
+  // If a em value is passed, return it converted in rem.
+  @if ( unit( $val ) == 'em' ) { @return $val * 1rem; }
+
+  // Strip units from em or rem values.
+  @if not unitless( $val )  { $val: strip-unit( $val ); }
+
+  // Return the rem value.
+  @return ( $val / 16 ) * 1rem;
+}
+
+/**
+ * Return a pixel value from a em or rem value.
+ *
+ * @param  {string|int} $val   The em or rem value to convert.
+ * @return {string}            The pixel value.
+ */
+@function px( $val ) {
+
+  // If a pixel value is passed, return it untouched.
+  @if ( unit( $val ) == 'px' ) { @return $val; }
+
+  // Strip units from em or rem values.
+  @if not unitless( $val )  { $val: strip-unit( $val ); }
+
+  // Return the pixel value.
+  @return ( $val * 16 ) * 1px;
+}

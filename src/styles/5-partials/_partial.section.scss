@@ -1,0 +1,115 @@
+/*---------------------------------------------------------------------------*\
+    PARTIAL: SECTION
+\*---------------------------------------------------------------------------*/
+/**
+ *  @block        Section
+ *  @section      Partials
+ *  @description  Generic section.
+ *
+ *  @markup
+ *    <section class="p-section [p-section--modifier]">
+ *      <h1 class="p-section_background-title">Section</h1>
+ *      <div class="p-section_background"></div>
+ *      <div class="p-section_content">
+ *        <div class="p-section_text [p-section_rhythm]">
+ *          <h2 class="p-section_title">
+ *            <span class="p-section_title_one">An astounding</span>
+ *            <span class="p-section_title_two">introduction</span>
+ *          </h2>
+ *          <p class="p-section_intro">...</p>
+ *          <a class="p-section_link" href="...">Link</a>
+ *        </div>
+ *        <div class="p-section_visual">
+ *          <img src="...">
+ *        </div>
+ *    </section>
+ */
+
+/**
+ *  @element      Section
+ *  @description  Section wrapper.
+ */
+.p-section {
+  position: relative;
+  width: 100%;
+  @extend .o-pad;
+  @extend .o-pad--side;
+}
+
+  /**
+   *  @element      Section > Content
+   *  @description  Section content.
+   */
+  .p-section_header,
+  .p-section_content,
+  .p-section_footer {
+    @extend .g-wrap;
+    @extend .g-row;
+    @extend .g-row--middle;
+    padding: 0;
+  }
+
+  /**
+   *  @element      Section > Content
+   *  @description  Stacked section also on large screens.
+   */
+  .p-section_full {
+    width: 100%;
+  }
+
+  /**
+   *  @element      Section > Background
+   *  @description  Background which covers the entire section.
+   */
+  .p-section_background {
+    @extend %coverer;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+    /**
+     *  @element      Section > Visual
+     *  @description  Section visual.
+     */
+    .p-section_visual {
+      @extend .g-row;
+    }
+
+      /**
+       *  @element      Section > Image
+       *  @description  Section image.
+       */
+      .p-section_image {
+        position: relative;
+      }
+
+    /**
+     *  @element      Section > Text
+     *  @description  Section text content.
+     */
+    .p-section_text {
+      @extend .g-row;
+      @extend .g-cell-2\/3\@m;
+      @extend .g-cell-1\/2\@w;
+      position: relative;
+      z-index: 2;
+    }
+
+      /**
+       *  @element      Section > Title
+       *  @description  Section title.
+       */
+      .p-section_title {
+        @extend .g-cell;
+      }
+
+      /**
+       *  @element      Section > Intro
+       *  @description  Section introduction.
+       */
+      .p-section_intro {
+        @extend .g-cell;
+        text-align: left;
+      }

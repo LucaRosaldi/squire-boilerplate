@@ -1,0 +1,22 @@
+/*---------------------------------------------------------------------------*\
+    COMPONENT: LOGO
+\*---------------------------------------------------------------------------*/
+/**
+ *  @block        Logo
+ *  @section      Components
+ *  @description  Main logo for the website.
+ *
+ *  @markup
+ *    <div class="c-logo [c-logo--modifier]">
+ *      <svg class="vecchio"><use xlink:href="#vecchio"></use></svg>
+ *      <svg class="amaro"><use xlink:href="#amaro"></use></svg>
+ *      <svg class="delcapo"><use xlink:href="#delcapo"></use></svg>
+ *    </div>
+ */
+
+/**
+ *  @element      Logo
+ *  @description  Main logo wrapper.
+ */
+.c-logo {
+}

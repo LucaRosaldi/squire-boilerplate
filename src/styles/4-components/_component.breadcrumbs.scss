@@ -1,0 +1,60 @@
+/*---------------------------------------------------------------------------*\
+   BREADCRUMBS
+\*---------------------------------------------------------------------------*/
+/**
+*
+* List of links which show the path from the home page.
+*
+*
+
+  <nav class="c-breadcrumbs" role="navigation">
+    <ul class="c-breadcrumbs_list">
+      <li class="c-breadcrumbs_item c-breadcrumbs_root">
+        <a class="c-breadcrumbs_link" href="#">Home</a>
+      </li>
+      <li><a href="#">About</a></li>
+      <li><a href="/page/1">1</a></li>
+      <li><a href="/page/2">2</a></li>
+      <li class="is-active"><span>3</span></a></li>
+      <li><a href="/page/4">4</a></li>
+      <li><a href="/page/5">5</a></li>
+      <li class="pagination__next"><a href="/page/next">Next</a></li>
+      <li class="pagination__last"><a href="/page/last">Last</a></li>
+    </ul>
+  </nav>
+
+*
+**/
+
+/**
+ * Dafault separator is: "\002F" / (Forward slash).
+ *
+ * Other common options are:
+ *
+ *   "\3009" 〉(Right angle bracket)
+ *   "\203A" › (Single angle quotation mark)
+ *   "\00BB" » (Double angle quotation mark)
+ *   "\01C0" ǀ (Pipe)
+ */
+$c-breadcrumbs-separator: "\002F";
+
+.c-breadcrumbs {
+}
+
+  .c-breadcrumbs_list {
+    @extend .o-nav;
+  }
+
+    .c-breadcrumbs_item {
+      &:not(:last-child)::after {
+        content: $c-breadcrumbs-separator;
+        padding: 0 0.5em;
+      }
+    }
+    .c-breadcrumbs_item--home {
+    }
+    .c-breadcrumbs_item--current {
+    }
+
+      .c-breadcrumbs_link {
+      }

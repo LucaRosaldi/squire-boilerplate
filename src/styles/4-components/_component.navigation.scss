@@ -1,0 +1,29 @@
+/*---------------------------------------------------------------------------*\
+   COMPONENT: NAVIGATION
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ * Site navigation, used inside the topbar and the footer.
+ *
+ */
+
+/**
+ * Navigation wrapper.
+ */
+.c-nav {
+  @extend .g-row;
+  @extend .g-row--start;
+  width: auto;
+  overflow: hidden;
+}
+
+  /**
+   * Navigation sections.
+   *
+   * 1. stack section vertically until widescreen
+   */
+  .c-nav_section {
+    @extend .g-cell;
+    position: relative;
+    margin: auto;
+  }

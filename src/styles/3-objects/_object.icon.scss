@@ -1,0 +1,65 @@
+/*---------------------------------------------------------------------------*\
+    OBJECT: ICONS
+\*---------------------------------------------------------------------------*/
+/**
+ *
+ *  SVG font icon set.
+ *
+ *  Icons are defined in 'assets/img/icons.svg', and included in the page
+ *  immediately after the opening <body> tag.
+ *
+ *  Usage:
+ *  <svg class="icon" width="100"><use xlink:href="#symbol-id"></use></svg>
+ *
+ *  Further reference:
+ *  https://css-tricks.com/using-svg/
+ *  https://css-tricks.com/svg-symbol-good-choice-icons/
+ *
+ */
+
+/**
+ *  Shared styles.
+ */
+.o-icon,
+.o-icon-text {
+  display: inline-block;
+  vertical-align: middle;
+  vertical-align: -webkit-baseline-middle;
+}
+
+/**
+ *  Standard icon class.
+ */
+.o-icon {
+  width: 2em; height: 2em;                      // 32px
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2px;
+  stroke-miterlimit: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: inherit;
+}
+.o-icon--xs { width: 1em; height: 1em; }        // 16px
+.o-icon--s  { width: 1.5em; height: 1.5em; }    // 24px
+.o-icon--l  { width: 3em; height: 3em; }        // 48px
+.o-icon--xl { width: 3.75em; height: 3.75em; }  // 60px
+
+.o-icon--thin { stroke-width: 1px; }
+.o-icon--thicker { stroke-width: 3px; }
+.o-icon--thickest { stroke-width: 5px; }
+
+/**
+ *  The icon text. Add some margin for separation.
+ */
+.o-icon-text {
+  margin-left: 0.35em;
+  margin-right: 0.35em;
+}
+
+/**
+ *  Icon text for screen readers. Visually hidden, but still accessible.
+ */
+.o-icon-hint {
+  @include visually-hidden();
+}

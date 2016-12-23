@@ -1,0 +1,19 @@
+{
+	"root": {
+		"src": "src",
+		"dist": "public"
+	},
+	"css": {
+		"src": "styles/style.scss",
+		"dist": "assets/css/app.css"
+	},
+	"js": {
+		"src": "scripts/index.js",
+		"dist": "assets/js/app.js"
+	},
+	"server": {
+		"host": "localhost",
+		"port": 3000,
+		"proxy": ""
+	}
+}
